@@ -17,5 +17,5 @@ Func<int[][], int, int[]> sort = (pairs, index) =>
 int[] left = sort(pairs, 0);
 int[] right = sort(pairs, 1);
 
-var differences = left.Zip(right, (leftValue, rightValue) => Math.Abs(leftValue - rightValue)).Sum();
+int differences = left.Zip(right, (leftValue, rightValue) => Math.Abs(leftValue - rightValue)).Sum();
 differences

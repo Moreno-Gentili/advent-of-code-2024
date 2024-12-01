@@ -20,5 +20,5 @@ int[] right = sort(pairs, 1);
 // Use CountBy in .NET 9
 Dictionary<int, int> occurrences = right.GroupBy(value => value).ToDictionary(g => g.Key, g => g.Count());
 
-var similarity = left.Zip(right, (leftValue, _) => leftValue * occurrences.GetValueOrDefault(leftValue)).Sum();
+int similarity = left.Zip(right, (leftValue, _) => leftValue * occurrences.GetValueOrDefault(leftValue)).Sum();
 similarity
