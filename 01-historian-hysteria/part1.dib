@@ -1,0 +1,21 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+int[][] pairs =
+    [..from line in System.IO.File.ReadAllLines("input.txt")
+    select line.Split("   ").Select(int.Parse).ToArray()];
+
+Func<int[][], int, int[]> sort = (pairs, index) =>
+  [..from pair in pairs
+    let value = pair[index]
+    orderby value
+    select value];
+
+int[] left = sort(pairs, 0);
+int[] right = sort(pairs, 1);
+
+var differences = left.Zip(right, (leftValue, rightValue) => Math.Abs(leftValue - rightValue)).Sum();
+differences

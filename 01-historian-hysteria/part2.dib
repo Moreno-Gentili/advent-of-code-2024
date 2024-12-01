@@ -1,0 +1,24 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+int[][] pairs =
+    [..from line in System.IO.File.ReadAllLines("input.txt")
+    select line.Split("   ").Select(int.Parse).ToArray()];
+
+Func<int[][], int, int[]> sort = (pairs, index) =>
+[..from pair in pairs
+  let value = pair[index]
+  orderby value
+  select value];
+
+int[] left = sort(pairs, 0);
+int[] right = sort(pairs, 1);
+ 
+// Use CountBy in .NET 9
+Dictionary<int, int> occurrences = right.GroupBy(value => value).ToDictionary(g => g.Key, g => g.Count());
+
+var similarity = left.Zip(right, (leftValue, _) => leftValue * occurrences.GetValueOrDefault(leftValue)).Sum();
+similarity
