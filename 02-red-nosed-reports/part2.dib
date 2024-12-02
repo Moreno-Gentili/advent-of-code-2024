@@ -1,0 +1,42 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+int[][] reports =
+    [..from line in System.IO.File.ReadAllLines("input.txt")
+    select line.Split(' ').Select(int.Parse).ToArray()];
+
+int safe =
+    (from levels in reports
+    let unsafeIndex = FindUnsafeLevelIndex(levels)
+    where unsafeIndex is null ||
+        FindUnsafeLevelIndex(Dampen(levels, unsafeIndex.Value)) is null || 
+        FindUnsafeLevelIndex(Dampen(levels, unsafeIndex.Value + 1)) is null
+    select 1).Sum();
+
+bool IsSafe (int diff, int sign) =>
+    Math.Abs(diff) is >= 1 and <= 3 && Math.Sign(diff) == sign;
+
+int[] Dampen(int[] levels, int unsafeIndex) =>
+    levels.Where((level, index) => index != unsafeIndex).ToArray();
+
+int DetectSign(int[] levels) =>
+    Enumerable.Range(0, levels.Length - 1)
+             .Select(index => Math.Sign(levels[index] - levels[index+1]))
+             .GroupBy(sign => sign)
+             .OrderByDescending(group => group.Count())
+             .First().Key;
+
+int? FindUnsafeLevelIndex(int[] levels)
+{
+    int sign = DetectSign(levels);
+    return Enumerable.Range(0, levels.Length - 1)
+                     .Where(index => !IsSafe(levels[index] - levels[index + 1], sign))
+                     .Cast<int?>()
+                     .FirstOrDefault();
+}
+
+safe
+ 

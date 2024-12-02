@@ -1,0 +1,28 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+int[][] reports =
+    [..from line in System.IO.File.ReadAllLines("input.txt")
+    select line.Split(" ").Select(int.Parse).ToArray()];
+
+Func<int, bool> isWithinAllowedRange = diff =>
+  Math.Abs(diff) is >= 1 and <= 3;
+
+Func<int[], bool> isSafe = levels =>
+{
+  int? sign = null;
+  return Enumerable.Range(0, levels.Length - 1)
+  .Select(index => levels[index] - levels[index+1])
+  .All(diff => isWithinAllowedRange(diff) && (sign ??= Math.Sign(diff)) == Math.Sign(diff));
+};
+
+int safe =
+ (from levels in reports
+ where isSafe(levels)
+ select 1).Sum();
+
+safe
+ 
