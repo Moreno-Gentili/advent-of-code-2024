@@ -1,0 +1,32 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+string instructions = System.IO.File.ReadAllText("input.txt");
+System.Text.RegularExpressions.Regex doMatcher = new("""(?<action>do(n't)?)\(\)""");
+List<(int Index, bool CanMultiply)> lookup = new(
+    from match in doMatcher.Matches(instructions)
+    let pair = (match.Index, match.Groups["action"].Value == "do")
+    orderby pair.Item1
+    select pair);
+
+System.Text.RegularExpressions.Regex mulMatcher = new("""mul\((?<n1>\d{1,3}),(?<n2>\d{1,3})\)""");
+bool canMultiply = true;
+int nextIndex = 0;
+int sum = 0;
+foreach (System.Text.RegularExpressions.Match match in mulMatcher.Matches(instructions))
+{
+    if (nextIndex < lookup.Count && match.Index > lookup[nextIndex].Index)
+    {
+        canMultiply = lookup[nextIndex].CanMultiply;
+        nextIndex++;
+    }
+
+    if (canMultiply)
+    {
+        sum += int.Parse(match.Groups["n1"].Value) * int.Parse(match.Groups["n2"].Value);
+    }
+}
+sum

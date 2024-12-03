@@ -1,0 +1,12 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+string instructions = System.IO.File.ReadAllText("input.txt");
+System.Text.RegularExpressions.Regex matcher = new("""mul\((?<n1>\d{1,3}),(?<n2>\d{1,3})\)""");
+int sum = (from match in matcher.Matches(instructions)
+let product = int.Parse(match.Groups["n1"].Value) * int.Parse(match.Groups["n2"].Value)
+select product).Sum();
+sum
