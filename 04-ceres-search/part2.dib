@@ -1,0 +1,100 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+char[][] letters =
+(from line in System.IO.File.ReadAllLines("input.txt")
+select line.ToArray()).ToArray();
+
+record Size(int Width, int Height);
+record Point(int X, int Y);
+record Result(Char Letter, Point? NextLocation);
+
+Size size = new Size(letters[0].Length, letters.Length);
+const string xmas = "MAS";
+const char center = 'A';
+
+HashSet<Point> middlePoints = new();
+int score = 0;
+
+for (int y = 0; y < size.Height; y++)
+{
+    for (int x = 0; x < size.Width; x++)
+    {
+        Point point = new(x, y);
+        var centers = Walk(size, point,
+        DownRight, DownLeft, UpRight, UpLeft);
+        foreach (var c in centers)
+        {
+            if (!middlePoints.Add(c))
+            {
+                score++;
+            }
+        }
+    }   
+}
+
+IEnumerable<Point> Walk(Size size, Point point, params Func<Size, Point, Point?>[] walkers)
+{
+    foreach (var walker in walkers)
+    {
+        Point? walkerPoint = point;
+        Point? middlePoint = null;
+        foreach (char letter in xmas)
+        {
+            if (walkerPoint is null)
+            {
+                middlePoint = null;
+                break;
+            }
+
+            if (letter != letters[walkerPoint.Y][walkerPoint.X])
+            {
+                middlePoint = null;
+                break;
+            }
+
+            if (letter == center)
+            {
+                middlePoint = walkerPoint;
+            }
+
+            walkerPoint = walker.Invoke(size, walkerPoint);
+        }
+
+        if (middlePoint is not null)
+        {
+            yield return middlePoint;
+        }
+    }
+}
+
+Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+Point? DownRight(Size size, Point point) =>
+    point.Y < size.Height - 1 && point.X < size.Width -1 ? new Point(point.X + 1, point.Y + 1) : null;
+
+Point? DownLeft(Size size, Point point) =>
+    point.Y < size.Height - 1 && point.X > 0 ? new Point(point.X - 1, point.Y + 1) : null;
+
+Point? UpRight(Size size, Point point) =>
+    point.Y > 0 &&  point.X < size.Width -1 ? new Point(point.X + 1, point.Y - 1) : null;
+
+Point? UpLeft(Size size, Point point) =>
+    point.Y > 0 &&  point.X > 0 ? new Point(point.X - 1, point.Y - 1) : null;
+
+score
