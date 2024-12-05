@@ -1,0 +1,74 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#r "nuget:SharpGraphLib"
+
+using SharpGraph;
+
+string[] input = System.IO.File.ReadAllText("input.txt").Split("\r\n\r\n");
+
+var edges = 
+    (from pair in input[0].Split("\r\n")
+    let nodes = pair.Split('|').ToArray()
+    select new Edge(nodes[0], nodes[1])).ToList();
+
+string[][] printSequences =
+    (from printSequence in input[1].Split("\r\n")
+    select printSequence.Split(",").ToArray()).ToArray();
+
+int validSum = 0;
+foreach (string[] printSequence in printSequences)
+{
+    var relevantEdges = GetEdgesHavingBothNodesInPrintSequence(edges, printSequence);
+    Graph graph = new(relevantEdges.ToList());
+    List<string> sortedPages = GetTopologicallySortedPagesUsingKahnAlgorithm(graph);
+
+    if (!IsPrintSequenceSorted(printSequence, sortedPages))
+    {
+        validSum += int.Parse(sortedPages[sortedPages.Count / 2]);
+    }
+}
+
+IEnumerable<Edge> GetEdgesHavingBothNodesInPrintSequence(List<Edge> edges, string[] printSequence) =>
+    from edge in edges
+    let afterPage = edge.To().GetLabel()
+    let beforePage = edge.From().GetLabel()
+    where printSequence.Contains(beforePage) && printSequence.Contains(afterPage)
+    select edge;
+
+// https://en.wikipedia.org/wiki/Topological_sorting#Kahn's_algorithm
+List<string> GetTopologicallySortedPagesUsingKahnAlgorithm(Graph graph)
+{
+    var nodesWithNoIncomingEdge = graph.GetNodes().Where(n => !graph.GetEdgesAsReadOnly().Any(e => e.To() == n));
+    List<string> L = new(); // topologically sorted nodes
+    Queue<Node> S = new(nodesWithNoIncomingEdge);
+
+    while (S.Any())
+    {
+        var n = S.Dequeue();
+        L.Add(n.GetLabel());
+        var edgesFromN = graph.GetEdgesAsReadOnly().Where(e => e.From() == n).ToList();
+        foreach (var e in edgesFromN)
+        {
+            var m = e.To();
+            graph.RemoveEdge(e);
+            var mHasIncomingEdges = graph.GetEdges().Any(e => e.To() == m);
+            if (!mHasIncomingEdges)
+            {
+                S.Enqueue(m);
+            }
+        }
+    }
+
+    return L;
+}
+
+public bool IsPrintSequenceSorted(string[] printSequence, List<string> sortedPages)
+{
+    return printSequence.Zip(sortedPages).All(tuple => tuple.First == tuple.Second);
+}
+
+validSum

@@ -7,7 +7,7 @@
 #nullable enable
 
 char[][] letters =
-(from line in System.IO.File.ReadAllLines("test.txt")
+(from line in System.IO.File.ReadAllLines("input.txt")
 select line.ToArray()).ToArray();
 
 record Size(int Width, int Height);
