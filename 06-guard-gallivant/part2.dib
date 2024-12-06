@@ -1,0 +1,124 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+char[][] map =
+(from line in System.IO.File.ReadAllLines("input.txt")
+select line.ToArray()).ToArray();
+
+Size size = new Size(map[0].Length, map.Length);
+Position? position = FindStartingPosition(map, '^');
+List<Position> visitedPositions = new();
+const char obstacle = '#';
+const char free = '.';
+int loops = 0;
+
+while (position is not null)
+{
+    visitedPositions.Add(position);
+    position = Walk(map, position);
+}
+
+HashSet<Point> visitedPoints = new();
+for (int i = 1; i < visitedPositions.Count; i++)
+{
+    Point currentPoint = visitedPositions[i].Point;
+    if (!visitedPoints.Add(currentPoint))
+    {
+        continue;
+    }
+
+    map[currentPoint.Y][currentPoint.X] = obstacle;
+
+    position = visitedPositions[i - 1];
+    HashSet<Position> loopDetector = new();
+    while (position is not null)
+    {
+        if (!loopDetector.Add(position))
+        {
+            loops++;
+            break;
+        }
+
+        position = Walk(map, position);
+    }
+
+    map[currentPoint.Y][currentPoint.X] = free;
+}
+
+
+
+Position? Walk(char[][] map, Position position)
+{
+    Point? point = position.Direction switch
+    {
+        Direction.Up => Up(size, position.Point),
+        Direction.Right => Right(size, position.Point),
+        Direction.Down => Down(size, position.Point),
+        Direction.Left => Left(size, position.Point),
+        _ => throw new InvalidOperationException($"Direction unknown {position.Direction}")
+    };
+
+    if (point is null)
+    {
+        return null;
+    }
+
+    if (map[point.Y][point.X] is obstacle)
+    {
+        return new Position(position.Point, TurnClockwise(position.Direction));
+    }
+
+    return new Position(point, position.Direction);
+}
+
+Direction TurnClockwise(Direction direction)
+{
+    return (Direction)(((int)direction + 90) % 360);
+}
+
+Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+Position FindStartingPosition(char[][] map, char startingMarker)
+{
+    for (int y = 0; y < map.Length; y++)
+    {
+        for (int x = 0; x < map[0].Length; x++)
+        {
+            if (map[y][x] == startingMarker)
+            {
+                return new Position(new Point(x, y), Direction.Up);
+            }
+        }
+    }
+
+    throw new Exception("Could not find starting position");
+}
+
+enum Direction
+{
+    Up = 0,
+    Right = 90,
+    Down = 180,
+    Left = 270
+}
+
+record Size(int Width, int Height);
+record Point(int X, int Y);
+record Position(Point Point, Direction Direction);
+
+loops
