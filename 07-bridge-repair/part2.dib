@@ -1,0 +1,81 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+Operation[] operations =
+(from line in System.IO.File.ReadAllLines("input.txt")
+let parts = line.Split(':')
+let result = long.Parse(parts[0])
+let operands = parts[1].Trim().Split(' ').Select(long.Parse).ToArray()
+select new Operation(result, operands)).ToArray();
+
+record Operation(long Result, long[] Operands);
+long validSum = 0;
+const int operators = 3;
+
+foreach (Operation operation in operations)
+{
+    for (int iteration = 0; iteration < Math.Pow(operators, operation.Operands.Length - 1); iteration++)
+    {
+        long result = GetResult(operation.Operands, iteration);
+        if (operation.Result == result)
+        {
+            validSum += result;
+            break;
+        }
+    }
+}
+
+long GetResult(long[] operands, long iteration)
+{
+    try
+    {
+        long result = operands[0];
+        for (int o = 0; o < operands.Length - 1; o++)
+        {
+            Func<long, long, long> @operator = (iteration / Convert.ToInt64(Math.Pow(operators, o))) % operators switch
+            {
+                0 => Add,
+                1 => Multiply,
+                2 => Combine,
+                _ => throw new NotSupportedException("Operator not supported")
+            };
+
+            result = @operator(result, operands[o + 1]);
+        }
+
+        return result;
+    }
+    catch (OverflowException)
+    {
+        return -1;
+    }
+}
+
+long Add(long operand1, long operand2)
+{
+    checked
+    {
+        return operand1 + operand2;
+    }
+}
+
+long Multiply(long operand1, long operand2)
+{
+    checked
+    {
+        return operand1 * operand2;
+    }
+}
+
+long Combine(long operand1, long operand2)
+{
+    checked
+    {
+        return operand1 * Convert.ToInt64(Math.Pow(10, operand2.ToString().Length)) + operand2;
+    }
+}
+
+validSum
