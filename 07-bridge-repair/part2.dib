@@ -35,7 +35,7 @@ long GetResult(long[] operands, long iteration)
         long result = operands[0];
         for (int o = 0; o < operands.Length - 1; o++)
         {
-            Func<long, long, long> @operator = (iteration / Convert.ToInt64(Math.Pow(operators, o))) % operators switch
+            Func<long, long, long> @operator = ((iteration / Convert.ToInt64(Math.Pow(operators, o))) % operators) switch
             {
                 0 => Add,
                 1 => Multiply,
