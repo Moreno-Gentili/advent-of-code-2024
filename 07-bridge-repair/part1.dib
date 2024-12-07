@@ -18,7 +18,7 @@ foreach (Operation operation in operations)
 {
     for (int iteration = 0; iteration < Math.Pow(2, operation.Operands.Length - 1); iteration++)
     {
-        long result = GetResult(operation.Operands, iteration);
+        long result = GetResultByBruteForce(operation.Operands, iteration);
         if (operation.Result == result)
         {
             validSum += result;
@@ -27,7 +27,7 @@ foreach (Operation operation in operations)
     }
 }
 
-long GetResult(long[] operands, long iteration)
+long GetResultByBruteForce(long[] operands, long iteration)
 {
     try
     {

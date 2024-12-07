@@ -13,45 +13,46 @@ select new Operation(result, operands)).ToArray();
 
 record Operation(long Result, long[] Operands);
 long validSum = 0;
-const int operators = 3;
+Func<long, long, long>[] operators = [Add, Multiply, Combine];
 
 foreach (Operation operation in operations)
 {
-    for (int iteration = 0; iteration < Math.Pow(operators, operation.Operands.Length - 1); iteration++)
-    {
-        long result = GetResult(operation.Operands, iteration);
-        if (operation.Result == result)
-        {
-            validSum += result;
-            break;
-        }
-    }
+    validSum += GetResultRecursively(operation.Operands.AsSpan()[1..], operation.Result, operation.Operands[0]);
 }
 
-long GetResult(long[] operands, long iteration)
+long GetResultRecursively(Span<long> operands, long result, long sum)
 {
-    try
+    if (sum > result)
     {
-        long result = operands[0];
-        for (int o = 0; o < operands.Length - 1; o++)
+        return 0;
+    }
+
+    long totalSum = 0;
+    if (operands.Length == 1)
+    {
+        foreach (var @operator in operators)
         {
-            Func<long, long, long> @operator = ((iteration / Convert.ToInt64(Math.Pow(operators, o))) % operators) switch
+            totalSum = @operator(sum, operands[0]);
+            if (result == totalSum)
             {
-                0 => Add,
-                1 => Multiply,
-                2 => Combine,
-                _ => throw new NotSupportedException("Operator not supported")
-            };
-
-            result = @operator(result, operands[o + 1]);
+                return totalSum;
+            }
         }
-
-        return result;
     }
-    catch (OverflowException)
+    else
     {
-        return -1;
+        foreach (var @operator in operators)
+        {
+            totalSum = @operator(sum, operands[0]);
+            totalSum = GetIterativeResult(operands[1..], result, totalSum);
+            if (totalSum > 0)
+            {
+                return totalSum;
+            }
+        }
     }
+
+    return 0;
 }
 
 long Add(long operand1, long operand2)
@@ -68,7 +69,7 @@ long Multiply(long operand1, long operand2)
     {
         return operand1 * operand2;
     }
-}
+} 
 
 long Combine(long operand1, long operand2)
 {
