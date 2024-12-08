@@ -28,9 +28,9 @@ foreach (char antennaType in antennaTypes.Keys)
     foreach ((Point Point1, Point Point2) pair in GetAllPairs(antennaTypes[antennaType]))
     {
         Distance distance = pair.Point2 - pair.Point1;
-        Point projected1 = pair.Point2 + distance;
-        Point projected2 = pair.Point1 - distance;
-        AddAntinodeIfValid(distinctAntinodes, size, projected1, projected2);
+        Point antinode1 = pair.Point2 + distance;
+        Point antinode2 = pair.Point1 - distance;
+        AddAntinodeIfValid(distinctAntinodes, size, antinode1, antinode2);
     }
 }
 
