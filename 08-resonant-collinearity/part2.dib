@@ -1,0 +1,81 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+const char blank = '.';
+char[][] map =
+(from line in System.IO.File.ReadAllLines("test.txt")
+select line.ToArray()).ToArray();
+Size size = new(map[0].Length, map.Length);
+
+var antennaTypes = (from x in Enumerable.Range(0, size.Width)
+from y in Enumerable.Range(0, size.Height)
+let point = new Point(x, y)
+let antenna = map[y][x]
+where antenna != blank
+let pair = (Point: point, Antenna: antenna)
+group pair by pair.Antenna into grp
+let points = grp.Select(g => g.Point).ToList()
+select new KeyValuePair<char, List<Point>>(grp.Key, points)).ToDictionary();
+
+HashSet<Point> distinctAntinodes = new();
+foreach (char antennaType in antennaTypes.Keys)
+{
+    foreach ((Point Point1, Point Point2) pair in GetAllPairs(antennaTypes[antennaType]))
+    {
+        Point[] projectedPoints = GetAllProjectedPoints(pair.Point1, pair.Point2).ToArray();
+        AddAntinodeIfValid(distinctAntinodes, projectedPoints);
+    }
+}
+
+IEnumerable<Point> GetAllProjectedPoints(Point point1, Point point2)
+{
+    Distance distance = point2 - point1;
+
+    do yield return point1;
+    while(IsValid(point1 += distance));
+
+    do yield return point2;
+    while(IsValid(point2 -= distance));
+}
+
+void AddAntinodeIfValid(HashSet<Point> antinodes, params Point[] points)
+{
+    foreach (Point point in points)
+        if (IsValid(point)) antinodes.Add(point);
+}
+
+bool IsValid(Point point) =>
+    point.X < size.Width && point.Y < size.Height && point.X >= 0 && point.Y >= 0;
+
+IEnumerable<(Point Point1, Point Point2)> GetAllPairs(List<Point> points)
+{
+    for (int i = 0; i < points.Count - 1; i++)
+    {
+        for (int j = i + 1; j < points.Count; j++)
+        {
+            yield return (points[i], points[j]);
+        }
+    }
+}
+
+record Size(int Width, int Height);
+record Point(int X, int Y)
+{
+    public static Distance operator -(Point point1, Point point2) =>
+        new Distance(point1.X - point2.X, point1.Y - point2.Y);
+
+    public static Point operator -(Point point, Distance distance) =>
+        new Point(point.X - distance.Horizontal, point.Y - distance.Vertical);
+
+    public static Point operator +(Point point, Distance distance) =>
+        new Point(point.X + distance.Horizontal, point.Y + distance.Vertical);
+}
+
+record Distance(int Horizontal, int Vertical);
+
+distinctAntinodes.Count()
