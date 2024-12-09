@@ -1,0 +1,114 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+string input = System.IO.File.ReadAllText("input.txt");
+List<File> disk = new();
+AddFiles(disk);
+MoveFiles(disk);
+long checksum = CalculateChecksum(disk);
+
+void MoveFiles(List<File> disk)
+{
+    int endIndex = disk.Count;
+    do
+    {
+        endIndex--;
+
+        for (int startIndex = 0; startIndex < endIndex; startIndex++)
+        {
+            File file = disk[endIndex];
+            File receiver = disk[startIndex];
+            if (!receiver.IsBlank || receiver.Size < file.Size)
+            {
+                continue;
+            }
+
+            disk[endIndex] = new File(file.Size, null);
+            disk.Insert(startIndex, file);
+            if (file.Size < receiver.Size)
+            {
+                disk[startIndex + 1] = new File(receiver.Size - file.Size, null);
+                endIndex++;
+            }
+            else
+            {
+                disk.RemoveAt(startIndex + 1);
+            }
+
+            endIndex = CompactSpaces(disk, endIndex);
+
+         break;
+        }
+    } while (endIndex > 0);
+}
+
+long CalculateChecksum(List<File> disk)
+{
+    long checksum = 0;
+    long diskCapacity = disk.Sum(b => b.Size);
+    long index = 0;
+    for (int i = 0; i < disk.Count; i++)
+    {
+        if (disk[i].IsBlank)
+        {
+            index += disk[i].Size;
+            continue;
+        }
+
+        for (int j = 0; j < disk[i].Size; j++)
+        {
+            checksum += disk[i].Id!.Value * index;
+            index++;
+        }
+    }
+
+    return checksum;
+}
+
+void AddFiles(List<File> disk)
+{
+    List<File> files = new();
+    int id = 0;
+    for (int i = 0; i < input.Length; i++)
+    {
+        int size = int.Parse(input[i].ToString());
+        if (i % 2 == 0)
+        {
+            disk.Add(new File(size, id));
+            id++;
+        }
+        else if (size > 0)
+        {
+            disk.Add(new File(size, null));
+        }
+    }
+}
+
+int CompactSpaces(List<File> disk, int endIndex)
+{
+    for (int i = disk.Count - 1; i > 0; i--)
+    {
+        if (disk[i].IsBlank && disk[i - 1].IsBlank)
+        {
+            disk[i-1] = new File(disk[i].Size + disk[i-1].Size, null);
+            disk.RemoveAt(i);
+            if (endIndex >= i)
+            {
+                endIndex--;
+            }
+        }
+    }
+
+    return endIndex;
+}
+
+record File(int Size, int? Id)
+{
+    public bool IsBlank => Id is null;
+}
+
+checksum

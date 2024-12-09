@@ -1,0 +1,78 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+string input = System.IO.File.ReadAllText("test.txt");
+Chunk blank = new Chunk(0, null);
+List<Chunk> disk = new();
+int id = 0;
+for (int i = 0; i < input.Length; i++)
+{
+    int value = int.Parse(input[i].ToString());
+    if (i % 2 == 0)
+    {
+        FillData(id, value);
+        id++;
+    }
+    else
+    {
+        FillBlank(value);
+    }
+}
+
+int startBlock = 0;
+int endBlock = disk.Count - 1;
+while (true)
+{
+    while(disk[startBlock] != blank)
+    {
+        startBlock++;
+    }
+
+    while (disk[endBlock] == blank)
+    {
+        endBlock--;
+    }
+
+    if (startBlock >= endBlock)
+    {
+        break;
+    }
+
+    disk[startBlock] = disk[endBlock];
+    disk[endBlock] = blank;
+    startBlock++;
+    endBlock--;
+}
+
+long checksum = 0;
+for (int i = 0; i < disk.Count; i++)
+{
+    if (disk[i] == blank)
+    {
+        break;
+    }
+
+    checksum += disk[i].Id!.Value * i;
+}
+
+void FillData(int id, int value)
+{
+    disk.AddRange(Enumerable.Repeat(new Chunk(id, id), value));
+}
+
+void FillBlank(int value)
+{
+    disk.AddRange(Enumerable.Repeat(blank, value));
+}
+
+record Chunk(int Data, int? Id)
+{
+    public bool IsEmpty => Id is null;
+}
+
+// checksum
+checksum
