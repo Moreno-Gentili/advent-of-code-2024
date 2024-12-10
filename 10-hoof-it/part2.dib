@@ -1,0 +1,82 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Map = byte[][];
+
+Map map =
+(from line in System.IO.File.ReadAllLines("input.txt")
+select line.Select(i => byte.Parse(i.ToString())).ToArray()).ToArray();
+
+const byte startingValue = 0;
+const byte endingValue = 9;
+
+Size size = new Size(map[0].Length, map.Length);
+Queue<Path> paths = new(
+    from point in FindStartingPoints(map, size, startingValue)
+    select new Path(point, point));
+Func<Size, Point, Point?>[] directions = [Left, Up, Right, Down];
+List<Path> viablePaths = new();
+
+while (paths.Count > 0)
+{
+    Path currentPath = paths.Dequeue();
+    byte currentValue = Get(map, currentPath.Current);
+    if (currentValue == endingValue)
+    {
+        viablePaths.Add(currentPath);
+    }
+    else
+    {
+        byte nextValue = (byte)(currentValue + 1);
+        foreach (var direction in directions)
+        {
+            Point? nextPoint = direction.Invoke(size, currentPath.Current);
+            if (nextPoint is not null && Get(map, nextPoint) == nextValue)
+            {
+                paths.Enqueue(new Path(currentPath.Start, nextPoint));
+            }
+        }
+    }
+}
+
+static IEnumerable<Point> FindStartingPoints(Map map, Size size, byte startingPoint)
+{
+    for (int x = 0; x < size.Width; x++)
+    {
+        for (int y = 0; y < size.Height; y++)
+        {
+            Point point = new(x, y);
+            if (Get(map, point) == startingPoint)
+            {
+                yield return point;
+            }
+        }
+    }
+}
+
+static byte Get(Map map, Point point)
+{
+    return map[point.Y][point.X];
+}
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Size(int Width, int Height);
+record Point(int X, int Y);
+record Path(Point Start, Point Current);
+
+viablePaths.Count
