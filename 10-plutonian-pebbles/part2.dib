@@ -1,0 +1,90 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+List<long> stones = System.IO.File
+    .ReadAllText("input.txt")
+    .Split(' ')
+    .Select(long.Parse)
+    .ToList();
+
+Dictionary<long, List<long>> cache = new();
+Func<List<long>, int, bool>[] rules = [ReplaceZeroWithOne, ReplaceEvenDigitsWithTwoStonesEachHavingHalfTheDigits, MultiplyNumberBy2024];
+
+long count = EvolveAll(stones, cache, rules, currentBlink: 0, totalBlinks: 75, cacheBlinks: 25);
+
+static long EvolveAll(List<long> stones, Dictionary<long, List<long>> cache, Func<List<long>, int, bool>[] rules, int currentBlink, int totalBlinks, int cacheBlinks)
+{
+    if (currentBlink == totalBlinks)
+    {
+        return stones.Count;
+    }
+
+    long sum = 0;
+    foreach (long stone in stones)
+    { 
+        if (!cache.TryGetValue(stone, out List<long>? cachedStones))
+        {
+            cachedStones = EvolveStone(stone, cacheBlinks, rules);
+            cache.Add(stone, cachedStones);
+        }
+
+        sum += EvolveAll(cachedStones, cache, rules, currentBlink: currentBlink + cacheBlinks, totalBlinks: totalBlinks, cacheBlinks: cacheBlinks);
+    }
+
+    return sum;
+}
+
+static List<long> EvolveStone(long stone, int blinks, Func<List<long>, int, bool>[] rules)
+{
+    List<long> stones = new()
+    {
+        stone
+    };
+
+    for (int b = 0; b < blinks; b++)
+    {
+        for (int index = stones.Count - 1; index >= 0; index--)
+        {
+            rules.Any(rule => rule(stones, index));
+        }
+    }
+
+    return stones;
+}
+
+static bool ReplaceZeroWithOne(List<long> stones, int index)
+{
+    if (stones[index] == 0)
+    {
+        stones[index] = 1;
+        return true;
+    }
+
+    return false;
+}
+
+static bool ReplaceEvenDigitsWithTwoStonesEachHavingHalfTheDigits(List<long> stones, int index)
+{
+    string value = stones[index].ToString();
+    if (value.Length % 2 == 0)
+    {
+        stones[index] = int.Parse(value.Substring(0, value.Length / 2));
+        stones.Insert(index + 1, int.Parse(value.Substring(value.Length / 2)));
+        return true;
+    }
+
+    return false;
+}
+
+static bool MultiplyNumberBy2024(List<long> stones, int index)
+{
+    stones[index] *= 2024;
+    return true;
+}
+
+count

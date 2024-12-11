@@ -1,0 +1,56 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+List<long> stones = System.IO.File
+    .ReadAllText("input.txt")
+    .Split(' ')
+    .Select(long.Parse)
+    .ToList();
+
+Func<List<long>, int, bool>[] rules = [ReplaceZeroWithOne, ReplaceEvenDigitsWithTwoStonesEachHavingHalfTheDigits, MultiplyNumberBy2024];
+const int blinks = 25;
+
+for (int b = 0; b < blinks; b++)
+{
+    for (int index = stones.Count - 1; index >= 0; index--)
+    {
+        rules.Any(rule => rule(stones, index));
+    }
+}
+
+bool ReplaceZeroWithOne(List<long> stones, int index)
+{
+    if (stones[index] == 0)
+    {
+        stones[index] = 1;
+        return true;
+    }
+
+    return false;
+}
+
+bool ReplaceEvenDigitsWithTwoStonesEachHavingHalfTheDigits(List<long> stones, int index)
+{
+    string value = stones[index].ToString();
+    if (value.Length % 2 == 0)
+    {
+        stones[index] = int.Parse(value.Substring(0, value.Length / 2));
+        stones.Insert(index + 1, int.Parse(value.Substring(value.Length / 2)));
+        return true;
+    }
+
+    return false;
+}
+
+bool MultiplyNumberBy2024(List<long> stones, int index)
+{
+    stones[index] *= 2024;
+    return true;
+}
+
+stones.Count
