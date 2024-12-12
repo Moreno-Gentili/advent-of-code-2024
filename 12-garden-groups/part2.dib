@@ -1,0 +1,192 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+char[][] map =
+(from line in System.IO.File.ReadAllLines("input.txt")
+select line.ToArray()).ToArray();
+
+Size size = new Size(map.Length, map[0].Length);
+HashSet<Point> visited = new();
+HashSet<Group> groups = new();
+Point start = new Point(0, 0);
+Queue<Path> paths = new();
+paths.Enqueue(new Path(start, new Group(Get(map, start))));
+Func<Size, Point, Point?>[] directions = [Left, Up, Right, Down];
+
+while (paths.Count > 0)
+{
+    Path path = paths.Dequeue();
+    if (visited.Contains(path.Point))
+    {
+        continue;
+    }
+
+    groups.Add(path.Group);
+
+    Queue<Point> patchPoints = new();
+    patchPoints.Enqueue(path.Point);
+    while (patchPoints.Count > 0)
+    {
+        Point currentPoint = patchPoints.Dequeue();
+        if (!visited.Add(currentPoint))
+        {
+            continue;
+        }
+
+        path.Group.Patches.Add(currentPoint);
+        foreach (var direction in directions)
+        {
+            Point? adjacentPoint = direction(size, currentPoint);
+            if (adjacentPoint is null)
+            {
+                path.Group.AddSide(currentPoint, direction);
+                continue;
+            }
+
+            char adjacentType = Get(map, adjacentPoint);
+            if (adjacentType == path.Group.Type)
+            {
+                if (!visited.Contains(adjacentPoint))
+                {
+                    patchPoints.Enqueue(adjacentPoint);
+                }
+            }
+            else
+            {
+                path.Group.AddSide(currentPoint, adjacentPoint);
+
+                if (!visited.Contains(adjacentPoint))
+                {
+                    paths.Enqueue(new Path(adjacentPoint, new Group(adjacentType)));
+                }
+            }
+        }
+    }
+}
+
+record Point(int X, int Y);
+record Size(int Width, int Height);
+record Group(char Type)
+{
+    public HashSet<Point> Patches { get; } = new();
+    public List<Side> Sides { get; private set; } = new();
+    public void AddSide(Point center, Func<Size, Point, Point?> direction)
+    {
+        Point alteredPoint = new Point(center.X + 1, center.Y + 1);
+        Size size = new Size(int.MaxValue, int.MaxValue);
+        Point? movedPoint = direction(size, alteredPoint);
+        if (movedPoint is null)
+        {
+            throw new Exception("No");
+        }
+
+        AddSide(center, new Point(movedPoint.X - 1, movedPoint.Y - 1));
+    }
+
+    public void AddSide(Point p1, Point p2)
+    {
+        Side side = GetSide(p1, p2);
+        List<Side> matchingSides = Sides
+            .Where(s => s.IsContiguous(side))
+            .ToList();
+
+        matchingSides.Add(side);
+
+        Point newStart = new(matchingSides.Min(s => s.Start.X), matchingSides.Min(s => s.Start.Y));
+        Point newEnd = new(matchingSides.Max(s => s.End.X), matchingSides.Max(s => s.End.Y));
+        var newSide = new Side(newStart, newEnd, matchingSides.First().Greater);
+        Sides = Sides.Except(matchingSides).Append(newSide).ToList();
+    }
+
+    private Side GetSide(Point p1, Point p2)
+    {
+        Point start;
+        Point end;
+        bool greater;
+
+        // TODO: improve this part
+        if (p1.Y == p2.Y && p1.X < p2.X)
+        {
+            start = new Point(p1.X + 1, p1.Y);
+            end = new Point(p1.X + 1, p1.Y + 1);
+            greater = false;
+        }
+        else if (p1.Y == p2.Y && p1.X > p2.X)
+        {
+            start = new Point(p1.X, p1.Y);
+            end = new Point(p1.X, p1.Y + 1);
+            greater = true;
+        }
+        else if (p1.X == p2.X && p1.Y > p2.Y)
+        {
+            start = new Point(p1.X, p1.Y);
+            end = new Point(p1.X + 1, p1.Y);
+            greater = false;
+        }
+        else if (p1.X == p2.X && p1.Y < p2.Y)
+        {
+            start = new Point(p1.X, p1.Y + 1);
+            end = new Point(p1.X + 1, p1.Y + 1);
+            greater = true;
+        }
+        else
+        {
+            throw new Exception("Not");
+        }
+
+        return new Side(start, end, greater);
+    }
+}
+
+record Path(Point Point, Group Group);
+record Side
+{
+    private readonly Point start;
+    private readonly Point end;
+    private readonly bool greater;
+    public Side(Point start, Point end, bool greater)
+    {
+        if (start.X != end.X && start.Y != end.Y)
+        {
+            throw new Exception("Edge must be either horizontal or vertical");
+        }
+
+        this.start = start;
+        this.end = end;
+        this.greater = greater;
+    }
+
+    public Point Start => start;
+    public Point End => end;
+    public bool Greater => greater;
+
+    public bool IsVertical =>
+        Start.X == End.X;
+
+    public bool IsContiguous(Side side) =>
+        IsVertical == side.IsVertical && Greater == side.Greater &&
+        (End == side.Start || Start == side.End);
+}
+
+char Get(char[][] map, Point point) =>
+    map[point.Y][point.X];
+
+Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+// 895486
+groups.Sum(p => (p.Sides.Count) * p.Patches.Count)

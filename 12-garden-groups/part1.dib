@@ -7,7 +7,7 @@
 #nullable enable
 
 char[][] map =
-(from line in System.IO.File.ReadAllLines("input.txt")
+(from line in System.IO.File.ReadAllLines("test.txt")
 select line.ToArray()).ToArray();
 
 Size size = new Size(map.Length, map[0].Length);
