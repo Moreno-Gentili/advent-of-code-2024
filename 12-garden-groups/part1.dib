@@ -1,0 +1,102 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+char[][] map =
+(from line in System.IO.File.ReadAllLines("input.txt")
+select line.ToArray()).ToArray();
+
+Size size = new Size(map.Length, map[0].Length);
+HashSet<Point> visited = new();
+HashSet<Group> groups = new();
+Point start = new Point(0, 0);
+Queue<Path> paths = new();
+paths.Enqueue(new Path(start, new Group(Get(map, start))));
+Func<Size, Point, Point?>[] directions = [Left, Up, Right, Down];
+
+while (paths.Count > 0)
+{
+    Path path = paths.Dequeue();
+    if (visited.Contains(path.Point))
+    {
+        continue;
+    }
+
+    groups.Add(path.Group);
+
+    Queue<Point> patchPoints = new();
+    patchPoints.Enqueue(path.Point);
+    while (patchPoints.Count > 0)
+    {
+        Point currentPoint = patchPoints.Dequeue();
+        if (!visited.Add(currentPoint))
+        {
+            continue;
+        }
+
+        path.Group.Patches.Add(currentPoint);
+        int sameNeighbors = 0;
+        foreach (var direction in directions)
+        {
+            Point? adjacentPoint = direction(size, currentPoint);
+            if (adjacentPoint is null)
+            {
+                continue;
+            }
+
+            char adjacentType = Get(map, adjacentPoint);
+            if (adjacentType == path.Group.Type)
+            {
+                sameNeighbors++;
+                if (!visited.Contains(adjacentPoint))
+                {
+                    patchPoints.Enqueue(adjacentPoint);
+                }
+            }
+            else
+            {
+                if (!visited.Contains(adjacentPoint))
+                {
+                    paths.Enqueue(new Path(adjacentPoint, new Group(adjacentType)));
+                }
+            }
+        }
+
+        path.Group.AddFences(4 - sameNeighbors);
+    }
+}
+
+record Point(int X, int Y);
+record Size(int Width, int Height);
+record Group(char Type)
+{
+    public HashSet<Point> Patches { get; } = new();
+    public int Fences { get; private set; } = 0;
+    public void AddFences(int value)
+    {
+        Fences += value;
+    }
+}
+
+record Path(Point Point, Group Group);
+
+char Get(char[][] map, Point point) =>
+    map[point.Y][point.X];
+
+Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+groups.Sum(p => p.Fences * p.Patches.Count)
