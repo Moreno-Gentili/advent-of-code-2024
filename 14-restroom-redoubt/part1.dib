@@ -1,0 +1,76 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+Size size = new(101, 103);
+const int movements = 100;
+
+List<Robot> robots = (
+    from line in System.IO.File.ReadAllLines("input.txt")
+    let parts = line.Split(' ')
+    let position = parts[0].Split('=', ',')
+    let movement = parts[1].Split('=', ',')
+    select new Robot(new Point(int.Parse(position[1]), int.Parse(position[2])), new Movement(int.Parse(movement[1]), int.Parse(movement[2])))
+).ToList();
+
+int[] quadrants = new int[4];
+Point midline = new Point(size.Width / 2, size.Height / 2);
+foreach(Robot robot in robots)
+{
+    robot.Move(movements, size);
+    int? quadrant = null;
+    if (robot.Current.X < midline.X && robot.Current.Y < midline.Y) quadrant = 0;
+    else if (robot.Current.X > midline.X && robot.Current.Y < midline.Y) quadrant = 1;
+    else if (robot.Current.X < midline.X && robot.Current.Y > midline.Y) quadrant = 2;
+    else if (robot.Current.X > midline.X && robot.Current.Y > midline.Y) quadrant = 3;
+
+    if (quadrant is not null)
+    {
+        quadrants[quadrant.Value]++;
+    }
+}
+
+record Size(int Width, int Height);
+record Point(int X, int Y)
+{
+    public static Point operator +(Point point, Movement movement)
+    {
+        return new Point(point.X + movement.Horizontal, point.Y + movement.Vertical);
+    }
+}
+record Movement(int Horizontal, int Vertical)
+{
+    public static Movement operator *(Movement movement, int factor)
+    {
+        return new Movement(movement.Horizontal * factor, movement.Vertical * factor);
+    }
+
+    public static Movement operator +(Movement movement, Point point)
+    {
+        return new Movement(movement.Horizontal + point.X, movement.Vertical + point.Y);
+    }
+
+    public static Point operator %(Movement movement, Size size)
+    {
+        int h = movement.Horizontal % size.Width;
+        int v = movement.Vertical % size.Height;
+        return new Point(h >= 0 ? h : size.Width + h, v >= 0 ? v : size.Height + v);
+    }
+}
+
+record Robot(Point Initial, Movement Movement)
+{
+    public Point Current { get; private set; } = Initial;
+
+    public void Move(int times, Size size)
+    {
+        Movement actualMovement = (Movement * times) + Current;
+        Current = actualMovement % size;
+    }
+}
+
+quadrants.Aggregate(1, (a, b) => a * b)

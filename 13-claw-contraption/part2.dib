@@ -1,0 +1,84 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#r "nuget: BigRational, 1.0.0.7"
+#nullable enable
+using System.Numerics;
+
+string[] lines = System.IO.File.ReadAllLines("input.txt");
+BigRational tokens = 0;
+for (long i = 0; i < lines.Length; i+=4)
+{
+    List<Solution> solutions = new();
+    Claw claw = GetClaw(lines, i);
+
+    BigRational slopeA = (BigRational)claw.ButtonA.Vertical / (BigRational)claw.ButtonA.Horizontal;
+    BigRational interceptA = 0m;
+
+    BigRational slopeB = claw.ButtonB.Vertical / (BigRational)claw.ButtonB.Horizontal;
+    BigRational interceptB = claw.Prize.Y - (claw.Prize.X * slopeB);
+
+    if (slopeA == slopeB)
+    {
+        throw new Exception("Same slope");
+    }
+
+    BigRational x = (interceptB - interceptA) / (slopeA - slopeB);
+    BigRational y = slopeA * x + interceptA;
+
+    if (!IsWholePositive(x) || !IsWholePositive(y))
+    {
+        continue;
+    }
+
+    BigRational usagesA = (BigRational)x / (BigRational)claw.ButtonA.Horizontal;
+    BigRational usagesB = ((BigRational)claw.Prize.X - (BigRational)x) / (BigRational)claw.ButtonB.Horizontal;
+    if (IsWholePositive(usagesA) && IsWholePositive(usagesB))
+    {
+        tokens += usagesA * 3 + usagesB;
+    }
+}
+
+bool IsWholePositive(BigRational value)
+{
+    return value >= 0 && !value.ToString().Contains('.');
+}
+
+Claw GetClaw(string[] lines, long i)
+{
+    Movement a = GetMovement(lines[i]);
+    Movement b = GetMovement(lines[i + 1]);
+    Point prize = GetPrize(lines[i + 2]);
+    return new Claw(a, b, prize);
+}
+
+Movement GetMovement(string line)
+{
+    string[] parts = line.Replace(" ", "").Split(':', ',', '+');
+    long horizontal = long.Parse(parts[^3]);
+    long vertical = long.Parse(parts[^1]);
+    return new Movement(horizontal, vertical);
+}
+
+Point GetPrize(string line)
+{
+    string[] parts = line.Replace(" ", "").Split(':', ',', '=');
+    long x = long.Parse(parts[^3]) + 10000000000000L;
+    long y = long.Parse(parts[^1]) + 10000000000000L;
+    return new Point(x, y);
+}
+
+record Solution(long ButtonA, long ButtonB)
+{
+    public long Cost => ButtonA * 3 + ButtonB;
+}
+
+record Claw(Movement ButtonA, Movement ButtonB, Point Prize);
+
+record Point(long X, long Y);
+
+record Movement(long Horizontal, long Vertical);
+tokens

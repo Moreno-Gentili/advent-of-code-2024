@@ -1,0 +1,84 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+string[] lines = System.IO.File.ReadAllLines("test.txt");
+int tokens = 0;
+for (int i = 0; i < lines.Length; i+=4)
+{
+    List<Solution> solutions = new();
+    Claw claw = GetClaw(lines, i);
+    
+    int aUsage = 0;
+    while (true)
+    {
+        var ahMovement = claw.ButtonA.Horizontal * aUsage;
+        if (aUsage > 100 || ahMovement > claw.Prize.X)
+        {
+            break;
+        }
+
+        if ((claw.Prize.X - ahMovement) % claw.ButtonB.Horizontal == 0)
+        {
+            int bUsage = (claw.Prize.X - ahMovement) / claw.ButtonB.Horizontal;
+            if (claw.ButtonA.Vertical * aUsage + claw.ButtonB.Vertical * bUsage == claw.Prize.Y)
+            {
+                solutions.Add(new Solution(aUsage, bUsage));
+            }
+        }
+
+        aUsage++;
+    }
+
+    tokens += solutions.Select(s => s.Cost).OrderBy(s => s).FirstOrDefault();
+}
+
+Claw GetClaw(string[] lines, int i)
+{
+    Movement a = GetMovement(lines[i]);
+    Movement b = GetMovement(lines[i + 1]);
+    Point prize = GetPrize(lines[i + 2]);
+    return new Claw(a, b, prize);
+}
+
+Movement GetMovement(string line)
+{
+    string[] parts = line.Replace(" ", "").Split(':', ',', '+');
+    int horizontal = int.Parse(parts[^3]);
+    int vertical = int.Parse(parts[^1]);
+    return new Movement(horizontal, vertical);
+}
+
+Point GetPrize(string line)
+{
+    string[] parts = line.Replace(" ", "").Split(':', ',', '=');
+    int x = int.Parse(parts[^3]);
+    int y = int.Parse(parts[^1]);
+    return new Point(x, y);
+}
+
+record Solution(int ButtonA, int ButtonB)
+{
+    public int Cost => ButtonA * 3 + ButtonB;
+}
+
+record Claw(Movement ButtonA, Movement ButtonB, Point Prize);
+
+record Point(int X, int Y)
+{
+    public static Point operator +(Point point, Movement movement) =>
+        new Point(point.X + movement.Horizontal, point.Y + movement.Vertical);
+    
+}
+
+record Movement(int Horizontal, int Vertical)
+{
+    public static Movement operator *(Movement movement, int factor) =>
+        new Movement(movement.Horizontal * factor, movement.Vertical * factor);
+}
+
+tokens

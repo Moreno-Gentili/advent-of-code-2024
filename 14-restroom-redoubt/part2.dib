@@ -1,0 +1,98 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#r "nuget: System.Drawing.Common, 9.0.0"
+
+Size size = new(101, 103);
+const int movements = 300;
+
+List<Robot> robots = (
+    from line in System.IO.File.ReadAllLines("input.txt")
+    let parts = line.Split(' ')
+    let position = parts[0].Split('=', ',')
+    let movement = parts[1].Split('=', ',')
+    select new Robot(new Point(int.Parse(position[1]), int.Parse(position[2])), new Movement(int.Parse(movement[1]), int.Parse(movement[2])))
+).ToList();
+
+int[] quadrants = new int[4];
+Point midline = new Point(size.Width / 2, size.Height / 2);
+int totalMovement = 0;
+foreach (int movement in GetMovements())
+{
+    bool[][] map = (from y in Enumerable.Range(1, size.Height)
+                   select new bool[size.Width]).ToArray();
+    foreach(Robot robot in robots)
+    {
+        robot.Move(movement, size);
+        map[robot.Current.Y][robot.Current.X] = true;
+    }
+
+    totalMovement += movement;
+    Write(map, totalMovement);
+}
+
+void Write(bool[][] map, int iteration)
+{
+    using System.Drawing.Bitmap b = new(map[0].Length, map.Length);
+    for (int y = 0; y < b.Height; y++)
+    {
+        for (int x = 0; x < b.Width; x++)
+        {
+            b.SetPixel(x, y, map[y][x] ? System.Drawing.Color.White : System.Drawing.Color.Black);
+        }
+    }
+
+    b.Save($"file{iteration:D4}.bmp");
+    // System.IO.File.WriteAllLines($"file{iteration:D2}.txt", map.Select(l => new string(l)).ToArray());
+}
+
+IEnumerable<int> GetMovements()
+{
+    yield return 23;
+    for (int i = 0; i < 100; i++)
+    {
+        yield return 101;
+    }
+}
+
+record Size(int Width, int Height);
+record Point(int X, int Y)
+{
+    public static Point operator +(Point point, Movement movement)
+    {
+        return new Point(point.X + movement.Horizontal, point.Y + movement.Vertical);
+    }
+}
+record Movement(int Horizontal, int Vertical)
+{
+    public static Movement operator *(Movement movement, int factor)
+    {
+        return new Movement(movement.Horizontal * factor, movement.Vertical * factor);
+    }
+
+    public static Movement operator +(Movement movement, Point point)
+    {
+        return new Movement(movement.Horizontal + point.X, movement.Vertical + point.Y);
+    }
+
+    public static Point operator %(Movement movement, Size size)
+    {
+        int h = movement.Horizontal % size.Width;
+        int v = movement.Vertical % size.Height;
+        return new Point(h >= 0 ? h : size.Width + h, v >= 0 ? v : size.Height + v);
+    }
+}
+
+record Robot(Point Initial, Movement Movement)
+{
+    public Point Current { get; private set; } = Initial;
+
+    public void Move(int times, Size size)
+    {
+        Movement actualMovement = (Movement * times) + Current;
+        Current = actualMovement % size;
+    }
+}
