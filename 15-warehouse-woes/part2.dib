@@ -9,7 +9,6 @@ using System.Linq;
 using Direction = System.Func<Size, Point, Point?>;
 using Map = char[][];
 
-string[] parts = System.IO.File.ReadAllText("input.txt").Split("\r\n\r\n");
 const char robot = '@';
 const char empty = '.';
 const char box = 'O';
@@ -17,9 +16,17 @@ const char wall = '#';
 const char box1 = '[';
 const char box2 = ']';
 
+string[] parts = System.IO.File
+    .ReadAllText("input.txt")
+    .Replace($"{empty}", $"{empty}{empty}")
+    .Replace($"{robot}", $"{robot}{empty}")
+    .Replace($"{wall}", $"{wall}{wall}")
+    .Replace($"{box}", $"{box1}{box2}")
+    .Split("\r\n\r\n");
+
 Map map =
     (from line in parts[0].Split("\r\n")
-     select Enlarge(line.ToArray()).ToArray()).ToArray();
+     select line.ToArray()).ToArray();
 
 Size size = new Size(map[0].Length, map.Length);
 
@@ -43,34 +50,6 @@ int totalGps =
  let point = new Point(x, y)
  let gps = CalculateGps(map, size, point)
  select gps).Sum();
-
-IEnumerable<char> Enlarge(char[] line)
-{
-    foreach (char item in line)
-    {
-        switch (item)
-        {
-            case empty:
-                yield return empty;
-                yield return empty;
-                break;
-            case robot:
-                yield return robot;
-                yield return empty;
-                break;
-            case box:
-                yield return box1;
-                yield return box2;
-                break;
-            case wall:
-                yield return wall;
-                yield return wall;
-                break;
-            default:
-                throw new NotImplementedException("Object not supported");
-        }
-    }
-}
 
 int CalculateGps(Map map, Size size, Point point) =>
     Get(map, point) is box1 ?
