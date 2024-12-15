@@ -1,0 +1,121 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Direction = System.Func<Size, Point, Point?>;
+using Map = char[][];
+
+string[] parts = System.IO.File.ReadAllText("input.txt").Split("\r\n\r\n");
+const char robot = '@';
+const char empty = '.';
+const char box = 'O';
+const char wall = '#';
+
+Map map = 
+    (from line in parts[0].Split("\r\n")
+    select line.ToArray()).ToArray();
+
+Size size = new Size(map[0].Length, map.Length);
+
+char[] moves = 
+    (from line in parts[1].Split("\r\n")
+    from c in line
+    select c).ToArray();
+
+Point current = FindRobot(map, size, robot);
+foreach (char move in moves)
+{
+    Direction direction = SelectDirection(move);
+    current = MoveIfPossible(direction, current, map, size) ?? current;
+}
+
+int totalGps =
+(from x in Enumerable.Range(0, size.Width)
+from y in Enumerable.Range(0, size.Height)
+let point = new Point(x, y)
+let gps = CalculateGps(map, point)
+select gps).Sum();
+
+
+int CalculateGps(Map map, Point point) =>
+    Get(map, point) is box ?
+    point.Y * 100 + point.X :
+    0;
+
+Direction SelectDirection(char c) =>
+    c switch
+    {
+        '^' => Up,
+        '>' => Right,
+        '<' => Left,
+        'v' => Down,
+        _ => throw new NotImplementedException("Move not supported")
+    };
+
+Point FindRobot(Map map, Size size, char robot) =>
+    (from x in Enumerable.Range(0, size.Width)
+    from y in Enumerable.Range(0, size.Height)
+    let point = new Point(x, y)
+    where Get(map, point) == robot
+    select point).Single();
+
+static Point? MoveIfPossible(Direction direction, Point origin, Map map, Size size)
+{
+    Point? destination = direction.Invoke(size, origin);
+    if (destination is null) return null;
+
+    char objectAtOrigin = Get(map, origin);
+    char objectAtDestination = Get(map, destination);
+    switch (objectAtDestination)
+    {
+        case empty:
+            Set(map, destination, objectAtOrigin);
+            Set(map, origin, empty);
+            return destination;
+
+        case wall:
+            return null;
+
+        case box:
+            Point? d = MoveIfPossible(direction, destination, map, size);
+            if (d is not null)
+            {
+                Set(map, destination, objectAtOrigin);
+                Set(map, origin, empty);
+                return destination;
+            }
+            else
+            {
+                return null;
+            }
+
+        default:
+            throw new NotImplementedException($"Object {objectAtDestination} not supported");
+    }
+}
+
+static char Get(Map map, Point point) =>
+    map[point.Y][point.X];
+
+static void Set(Map map, Point point, char obj) =>
+    map[point.Y][point.X] = obj;
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Point(int X, int Y);
+record Size(int Width, int Height);
+
+totalGps

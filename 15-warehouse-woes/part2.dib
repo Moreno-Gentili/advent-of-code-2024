@@ -1,0 +1,194 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using System.Linq;
+using Direction = System.Func<Size, Point, Point?>;
+using Map = char[][];
+
+string[] parts = System.IO.File.ReadAllText("input.txt").Split("\r\n\r\n");
+const char robot = '@';
+const char empty = '.';
+const char box = 'O';
+const char wall = '#';
+const char box1 = '[';
+const char box2 = ']';
+
+Map map =
+    (from line in parts[0].Split("\r\n")
+     select Enlarge(line.ToArray()).ToArray()).ToArray();
+
+Size size = new Size(map[0].Length, map.Length);
+
+char[] moves =
+    (from line in parts[1].Split("\r\n")
+     from c in line
+     select c).ToArray();
+
+Point current = FindRobot(map, size, robot);
+foreach (char move in moves)
+{
+    HashSet<Point> origins = new HashSet<Point>();
+    Direction direction = SelectDirection(move);
+    var movement = MoveIfPossible(direction, current, map, size, origins);
+    current = movement?.Invoke() ?? current;
+}
+
+int totalGps =
+(from x in Enumerable.Range(0, size.Width)
+ from y in Enumerable.Range(0, size.Height)
+ let point = new Point(x, y)
+ let gps = CalculateGps(map, size, point)
+ select gps).Sum();
+
+IEnumerable<char> Enlarge(char[] line)
+{
+    foreach (char item in line)
+    {
+        switch (item)
+        {
+            case empty:
+                yield return empty;
+                yield return empty;
+                break;
+            case robot:
+                yield return robot;
+                yield return empty;
+                break;
+            case box:
+                yield return box1;
+                yield return box2;
+                break;
+            case wall:
+                yield return wall;
+                yield return wall;
+                break;
+            default:
+                throw new NotImplementedException("Object not supported");
+        }
+    }
+}
+
+int CalculateGps(Map map, Size size, Point point) =>
+    Get(map, point) is box1 ?
+    point.Y * 100 + point.X : // Math.Min(point.Y, size.Height - point.Y - 1) * 100 + Math.Min(point.X, size.Width - point.X - 2) :
+    0;
+
+Direction SelectDirection(char c) =>
+    c switch
+    {
+        '^' => Up,
+        '>' => Right,
+        '<' => Left,
+        'v' => Down,
+        _ => throw new NotImplementedException("Move not supported")
+    };
+
+Point FindRobot(Map map, Size size, char robot) =>
+    (from x in Enumerable.Range(0, size.Width)
+     from y in Enumerable.Range(0, size.Height)
+     let point = new Point(x, y)
+     where Get(map, point) == robot
+     select point).Single();
+
+static Func<Point>? MoveIfPossible(Direction direction, Point origin, Map map, Size size, HashSet<Point> origins)
+{
+    Point? destination = direction.Invoke(size, origin);
+    if (destination is null) return null;
+
+    char objectAtOrigin = Get(map, origin);
+    char objectAtDestination = Get(map, destination);
+    switch (objectAtDestination)
+    {
+        case empty:
+            return () =>
+            {
+                return Move(map, origin, destination, objectAtOrigin);
+            };
+
+        case wall:
+            return null;
+
+        case box1:
+        case box2:
+            if (direction == Left || direction == Right)
+            {
+                Func<Point>? move1 = MoveIfPossible(direction, destination, map, size, origins);
+                return move1 is null ? null : () =>
+                {
+                    move1.Invoke();
+                    return Move(map, origin, destination, objectAtOrigin);
+                };
+            }
+            else if (direction == Up || direction == Down)
+            {
+                origins.Add(destination);
+                var otherDestination = objectAtDestination is box1 ? Right(size, destination) : Left(size, destination);
+                if (otherDestination is null) throw new Exception("Other half of the box not found");
+
+                if (origins.Contains(otherDestination))
+                {
+                    Func<Point>? move1 = MoveIfPossible(direction, destination, map, size, origins);
+                    return move1 is null ? null : () =>
+                    {
+                        move1.Invoke();
+                        return Move(map, origin, destination, objectAtOrigin);
+                    };
+                }
+                else
+                {
+                    Func<Point>? move1 = MoveIfPossible(direction, destination, map, size, origins);
+                    Func<Point>? move2 = MoveIfPossible(direction, otherDestination, map, size, origins);
+                    return move1 is null || move2 is null ? null : () =>
+                    {
+                        move1.Invoke();
+                        move2.Invoke();
+                        return Move(map, origin, destination, objectAtOrigin);
+                    };
+                }
+            }
+            else
+            {
+                throw new NotImplementedException("Direction not supported");
+            }
+
+        default:
+            throw new NotImplementedException($"Object {objectAtDestination} not supported");
+    }
+}
+
+static Point Move(Map map, Point origin, Point destination, char objectAtOrigin)
+{
+    Set(map, destination, objectAtOrigin);
+    Set(map, origin, empty);
+    return destination;
+}
+
+void Write(char[][] map, int iteration) =>
+    System.IO.File.WriteAllLines($"file{iteration:D2}.txt", map.Select(l => new string(l)).ToArray());
+
+static char Get(Map map, Point point) =>
+    map[point.Y][point.X];
+
+static void Set(Map map, Point point, char obj) =>
+    map[point.Y][point.X] = obj;
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width - 1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Point(int X, int Y);
+record Size(int Width, int Height);
+
+totalGps
