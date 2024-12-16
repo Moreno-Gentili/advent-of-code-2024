@@ -1,0 +1,107 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Maze = char[][];
+using Distances = long[][];
+using Movement = System.Func<Size, Point, Point?>;
+
+const char start = 'S';
+const char finish = 'E';
+const char empty = '.';
+const char wall = '#';
+
+Maze maze = 
+    (from line in System.IO.File.ReadAllLines("input.txt")
+    select line.ToArray()).ToArray();
+
+Size size = new Size(maze[0].Length, maze.Length);
+
+Point starting = FindPoint(maze, size, start);
+Point ending = FindPoint(maze, size, finish);
+Set(maze, starting, empty);
+
+HashSet<Point> visitedPoints = new();
+Distances distances = (from index in Enumerable.Range(0, size.Height)
+                     select Enumerable.Repeat(long.MaxValue, size.Width).ToArray()).ToArray();
+
+Movement?[][] movements = (from index in Enumerable.Range(0, size.Height)
+                     select Enumerable.Repeat((Movement?)null, size.Width).ToArray()).ToArray();
+
+Set(distances, starting, 0);
+Set(movements, starting, Right);
+
+HashSet<Point> unvisitedSet = new(
+    from y in Enumerable.Range(0, size.Height)
+    from x in Enumerable.Range(0, size.Width)
+    select new Point(x, y));
+
+do
+{
+    Point? current = unvisitedSet.OrderBy(p => Get(distances, p)).FirstOrDefault();
+    if (current is null) break;
+
+    unvisitedSet.Remove(current);
+
+    long currentDistance = Get(distances, current);
+    if (currentDistance == long.MaxValue) break;
+
+    if (current == ending) break;
+
+    Movement? currentMovement = Get(movements, current);
+    if (currentMovement is null) throw new Exception("Movement cannot be null");
+
+    Step[] steps =
+        (from move in new Movement[] {Left, Right, Up, Down}
+        let point = move(size, current)
+        where point is not null && unvisitedSet.Contains(point)
+        let item = Get(maze, point)
+        where item is empty or finish
+        select new Step(point, move)).ToArray();
+
+    foreach (var step in steps)
+    {
+        var oldDistance = Get(distances, step.Point);
+        var calculatedDistance = currentDistance + CalculateScore(step.Movement, currentMovement);
+        Set(distances, step.Point, Math.Min(oldDistance, calculatedDistance));
+        Set(movements, step.Point, step.Movement);
+    }
+
+} while(true);
+
+static int CalculateScore(Movement nextMovement, Movement previousMovement) =>
+    nextMovement == previousMovement ? 1 : 1001;
+
+static Point FindPoint(Maze maze, Size size, char find) =>
+    (from x in Enumerable.Range(0, size.Width)
+    from y in Enumerable.Range(0, size.Height)
+    let point = new Point(x, y)
+    where Get(maze, point) == find
+    select point).Single();
+
+static T Get<T>(T[][] maze, Point point) =>
+    maze[point.Y][point.X];
+
+static void Set<T>(T[][] maze, Point point, T obj) =>
+    maze[point.Y][point.X] = obj;
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Point(int X, int Y);
+record Step(Point Point, Movement Movement);
+record Size(int Width, int Height);
+
+Get(distances, ending)
