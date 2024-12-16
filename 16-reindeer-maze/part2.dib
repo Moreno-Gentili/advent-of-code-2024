@@ -65,7 +65,7 @@ do
     foreach (var step in steps)
     {
         var oldDistance = Get(distances, step.Point);
-        var calculatedDistance = currentDistance + CalculateScore(step.Movement, currentMovement);
+        var calculatedDistance = currentDistance + CalculateCost(step.Movement, currentMovement);
         Set(distances, step.Point, Math.Min(oldDistance ?? long.MaxValue, calculatedDistance ?? long.MaxValue));
 
         // if (Get(movements, step.Point) is not null)
@@ -137,7 +137,7 @@ static int CalculateCost(Point p1, Point p2)
     return 1002;
 }
 
-static int CalculateScore(Movement nextMovement, Movement previousMovement) =>
+static int CalculateCost(Movement nextMovement, Movement previousMovement) =>
     nextMovement == previousMovement ? 1 : 1001;
 
 static Point FindPoint(Maze maze, Size size, char find) =>
