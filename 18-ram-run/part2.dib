@@ -1,0 +1,99 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Ram = char[][];
+using Distances = int[][];
+using Movement = System.Func<Size, Point, Point?>;
+const int length = 71;
+const int count = 1025;
+const char wall = '#';
+const char empty = '.';
+Size size = new(length, length);
+
+Point[] bytes =
+(from line in System.IO.File.ReadAllLines("input.txt")
+let parts = line.Split(',')
+select new Point(int.Parse(parts[0]), int.Parse(parts[1]))).ToArray();
+
+for (int b = 1; b <= bytes.Length; b++)
+{
+    Console.WriteLine(b);
+    Point starting = new Point(0, 0);
+    Point ending = new Point(size.Width - 1, size.Height - 1);
+    Ram ram = (from i in Enumerable.Range(0, size.Height)
+    select Enumerable.Repeat(empty, size.Width).ToArray()).ToArray();
+
+    for (int i = 0; i < b; i++)
+    {
+        ram[bytes[i].Y][bytes[i].X] = wall;
+    }
+
+    Distances distances = (from index in Enumerable.Range(0, size.Height)
+                         select Enumerable.Repeat(int.MaxValue, size.Width).ToArray()).ToArray();
+
+    Set(distances, starting, 0);
+    HashSet<Point> unvisitedSet = new(
+        from y in Enumerable.Range(0, size.Height)
+        from x in Enumerable.Range(0, size.Width)
+        select new Point(x, y));
+
+    do
+    {
+        Point? current = unvisitedSet.OrderBy(p => Get(distances, p)).FirstOrDefault();
+        if (current is null) break;
+
+        unvisitedSet.Remove(current);
+
+        int currentDistance = Get(distances, current);
+        if (currentDistance == int.MaxValue) break;
+
+        if (current == ending) break;
+
+        Point[] points =
+            (from move in new Movement[] {Left, Right, Up, Down}
+            let point = move(size, current)
+            where point is not null && unvisitedSet.Contains(point)
+            let item = Get(ram, point)
+            where item is empty
+            select point).ToArray();
+
+        foreach (var point in points)
+        {
+            var oldDistance = Get(distances, point);
+            var calculatedDistance = currentDistance + 1;
+            Set(distances, point, Math.Min(oldDistance, calculatedDistance));
+        }
+
+    } while(true);
+
+    if (Get(distances, ending) == int.MaxValue)
+    {
+        Console.WriteLine($"Solution {bytes[b - 1]}");
+        break;
+    }
+}
+
+static T Get<T>(T[][] maze, Point point) =>
+    maze[point.Y][point.X];
+
+static void Set<T>(T[][] maze, Point point, T obj) =>
+    maze[point.Y][point.X] = obj;
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Size(int Width, int Height);
+record Point(int X, int Y);
