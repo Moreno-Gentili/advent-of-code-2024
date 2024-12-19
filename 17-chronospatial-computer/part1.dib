@@ -1,0 +1,160 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using OpCode = System.Func<byte, Machine, OpCodeResult>;
+
+(byte[] program, Machine machine) = Load(System.IO.File.ReadAllLines("input.txt"));
+
+static string ThreadLoop(byte[] program, Machine machine)
+{
+    while (machine.Pointer >= 0 && machine.Pointer < program.Length - 1)
+    {
+        OpCode opcode = SelectOpCode(program[machine.Pointer]);
+        OpCodeResult result = opcode.Invoke(program[machine.Pointer + 1], machine);
+        if (result is not OpCodeResult.Jumped)
+        {
+            machine.Pointer += 2;
+        }
+    }
+
+    return machine.FlushOutput();
+}
+
+static OpCodeResult Adv(byte argument, Machine machine)
+{
+    machine.RegisterA /= Convert.ToInt32(Math.Pow(2, GetComboValue(argument, machine)));
+    return OpCodeResult.Executed;
+}
+
+static OpCodeResult Bxl(byte argument, Machine machine)
+{
+    machine.RegisterB ^= argument;
+    return OpCodeResult.Executed;
+}
+
+static OpCodeResult Bst(byte argument, Machine machine)
+{
+    machine.RegisterB = GetComboValue(argument, machine) % 8;
+    return OpCodeResult.Executed;
+}
+
+static OpCodeResult Jnz(byte argument, Machine machine)
+{
+    if (machine.RegisterA == 0) return OpCodeResult.Skipped;
+    machine.Pointer = argument;
+    return OpCodeResult.Jumped;
+}
+
+static OpCodeResult Bxc(byte argument, Machine machine)
+{
+    machine.RegisterB ^= machine.RegisterC;
+    return OpCodeResult.Executed;
+}
+
+static OpCodeResult Out(byte argument, Machine machine)
+{
+    machine.Output(GetComboValue(argument, machine) % 8);
+    return OpCodeResult.Executed;
+}
+
+static OpCodeResult Bdv(byte argument, Machine machine)
+{
+    machine.RegisterB = machine.RegisterA / Convert.ToInt32(Math.Pow(2, GetComboValue(argument, machine)));
+    return OpCodeResult.Executed;
+}
+
+static OpCodeResult Cdv(byte argument, Machine machine)
+{
+    machine.RegisterC = machine.RegisterA / Convert.ToInt32(Math.Pow(2, GetComboValue(argument, machine)));
+    return OpCodeResult.Executed;
+}
+
+public enum OpCodeResult
+{
+    Executed,
+    Skipped,
+    Jumped
+}
+
+static OpCode SelectOpCode(byte code) =>
+    code switch
+    {
+        0 => Adv,
+        1 => Bxl,
+        2 => Bst,
+        3 => Jnz,
+        4 => Bxc,
+        5 => Out,
+        6 => Bdv,
+        7 => Cdv,
+        _ => throw new NotImplementedException("Code not supported")
+    };
+
+static int GetComboValue(byte value, Machine machine) =>
+    value switch
+    {
+        >= 0 and <= 3 => value,
+        4 => machine.RegisterA,
+        5 => machine.RegisterB,
+        6 => machine.RegisterC,
+        _ => throw new NotImplementedException("Value not supported")
+    };
+
+(byte[], Machine) Load(string[] disk)
+{
+    byte[] program = [];
+    Machine machine = new();
+    foreach (var line in disk)
+    {
+        if (string.IsNullOrWhiteSpace(line)) continue;
+
+        string[] parts = line.Split(": ");
+        string label = parts[0];
+        string value = parts[1];
+        switch (label)
+        {
+            case "Register A":
+                machine.RegisterA = int.Parse(value);
+                break;
+
+            case "Register B":
+                machine.RegisterB = int.Parse(value);
+                break;
+
+            case "Register C":
+                machine.RegisterC = int.Parse(value);
+                break;
+
+            case "Program":
+                program = value.Split(',').Select(byte.Parse).ToArray();
+                break;
+
+            default:
+                throw new NotSupportedException($"Not supported label: '{label}'");
+        }
+    }
+
+    return (program, machine);
+}
+
+
+class Machine
+{
+    private List<int> outputs = new();
+    public int RegisterA { get; set; }
+    public int RegisterB { get; set; }
+    public int RegisterC { get; set; }
+    public int Pointer { get; set; }
+
+    public void Output(int value) =>
+        outputs.Add(value);
+
+    public string FlushOutput() =>
+        string.Join(",", outputs);
+}
+
+ThreadLoop(program, machine)
