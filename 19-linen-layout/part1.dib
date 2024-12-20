@@ -36,5 +36,3 @@ bool IsDisplayable(IEnumerable<string> basicTowels, string display)
     cache.TryAdd(display, result);
     return result;
 }
-
-// 400 too high
