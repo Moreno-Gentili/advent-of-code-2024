@@ -1,0 +1,139 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Track = char[][];
+using Distances = int[][];
+using Movement = System.Func<Size, Point, Point?>;
+
+const char start = 'S';
+const char finish = 'E';
+const char empty = '.';
+const char wall = '#';
+const int save = 102;
+
+Track track = 
+    (from line in System.IO.File.ReadAllLines("input.txt")
+    select line.ToArray()).ToArray();
+
+Size size = new Size(track[0].Length, track.Length);
+
+Point starting = FindPoint(track, size, start);
+Point ending = FindPoint(track, size, finish);
+Set(track, starting, empty);
+Set(track, ending, empty);
+
+HashSet<Point> visitedPoints = new();
+Distances distances = (from index in Enumerable.Range(0, size.Height)
+                     select Enumerable.Repeat(int.MaxValue, size.Width).ToArray()).ToArray();
+
+HashSet<Point> visited = new();
+
+HashSet<Point p1> shortcuts = new();
+int distance = 0;
+Queue<Point> discovery = new();
+discovery.Enqueue(starting);
+while (discovery.Count > 0)
+{
+    Point current = discovery.Dequeue();
+    Point? next = VisitTrack(track, size, distances, current, visited, distance);
+    
+    if (next is not null)
+    {
+        discovery.Enqueue(next);
+        distance++;
+    }
+}
+
+int count = 0;
+foreach (var point in visited)
+{
+    count++;
+    foreach (var (s, l) in FindShortcuts(track, point, visited, save))
+    {
+        shortcuts.Add(s);
+    }
+}
+
+static Point? VisitTrack(Track track, Size size, Distances distances, Point current, HashSet<Point> visited, int distance)
+{
+    if (!visited.Add(current)) return null;
+
+    Set(distances, current, distance);
+
+    Point? next =
+        (from move in new Movement[] {Left, Right, Up, Down}
+        let point = move(size, current)
+        where point is not null && !visited.Contains(point)
+        let item = Get(track, point)
+        where item is empty
+        select point).SingleOrDefault();
+
+    return next;
+}
+
+IEnumerable<(Point, int)> FindShortcuts(Track track, Point current, HashSet<Point> visited, int save)
+{
+    Point[] walls =
+        (from move in new Movement[] {Left, Right, Up, Down}
+        let point = move(size, current)
+        where point is not null
+        let item = Get(track, point)
+        where item is wall
+        select point).ToArray();
+
+    foreach (var w in walls)
+    {
+        Point[] otherTrackPoints;
+        otherTrackPoints =
+        (from move in new Movement[] {Left, Right, Up, Down}
+        let point = move(size, w)
+        where point is not null && point != current
+        let item = Get(track, point)
+        where item is empty
+        select point).ToArray();
+
+        int max;
+        max = otherTrackPoints.Length > 0 ? otherTrackPoints.Max(t => Math.Abs(Get(distances, t) - Get(distances, current))) : 0;
+        if (max >= save)
+        {
+            yield return (w, max);
+        }
+    }
+}
+
+
+static Point FindPoint(Track track, Size size, char find) =>
+    (from x in Enumerable.Range(0, size.Width)
+    from y in Enumerable.Range(0, size.Height)
+    let point = new Point(x, y)
+    where Get(track, point) == find
+    select point).Single();
+
+static T Get<T>(T[][] track, Point point) =>
+    track[point.Y][point.X];
+
+static void Set<T>(T[][] track, Point point, T obj) =>
+    track[point.Y][point.X] = obj;
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Point(int X, int Y);
+record Step(Point Point, Movement Movement);
+record Size(int Width, int Height);
+
+// 1463
+shortcuts.Count()
