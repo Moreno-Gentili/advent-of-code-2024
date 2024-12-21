@@ -32,7 +32,7 @@ Distances distances = (from index in Enumerable.Range(0, size.Height)
 
 HashSet<Point> visited = new();
 
-HashSet<Point p1> shortcuts = new();
+HashSet<Point> shortcuts = new();
 int distance = 0;
 Queue<Point> discovery = new();
 discovery.Enqueue(starting);
@@ -135,5 +135,4 @@ record Point(int X, int Y);
 record Step(Point Point, Movement Movement);
 record Size(int Width, int Height);
 
-// 1463
 shortcuts.Count()
