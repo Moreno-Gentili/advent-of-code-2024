@@ -1,0 +1,28 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+List<long> secrets = (from line in System.IO.File.ReadAllLines("test.txt")
+select long.Parse(line)).ToList();
+
+long total = 0;
+foreach (long secret in secrets)
+{
+    long nextSecret = secret;
+    for (int i = 1; i <= 2000; i++)
+    {
+        nextSecret = (nextSecret ^ (nextSecret * 64)) % 16777216;
+        nextSecret = (nextSecret ^ (nextSecret / 32)) % 16777216;
+        nextSecret = (nextSecret ^ (nextSecret * 2048)) % 16777216;
+        
+    }
+
+    total += nextSecret;
+}
+
+
+total
