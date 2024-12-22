@@ -1,0 +1,115 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Track = char[][];
+using Distances = int[][];
+using Movement = System.Func<Size, Point, Point?>;
+
+const char start = 'S';
+const char finish = 'E';
+const char empty = '.';
+const char wall = '#';
+const int save = 100;
+const int lapse = 20;
+
+Track track = 
+    (from line in System.IO.File.ReadAllLines("input.txt")
+    select line.ToArray()).ToArray();
+
+Size size = new Size(track[0].Length, track.Length);
+
+Point starting = FindPoint(track, size, start);
+Point ending = FindPoint(track, size, finish);
+Set(track, starting, empty);
+Set(track, ending, empty);
+
+Distances distances = (from index in Enumerable.Range(0, size.Height)
+                     select Enumerable.Repeat(int.MaxValue, size.Width).ToArray()).ToArray();
+
+List<Point> visited = new();
+
+int distance = 0;
+Queue<Point> discovery = new();
+discovery.Enqueue(starting);
+while (discovery.Count > 0)
+{
+    Point current = discovery.Dequeue();
+    Point? next = VisitTrack(track, size, distances, current, visited, distance);
+    
+    if (next is not null)
+    {
+        discovery.Enqueue(next);
+        distance++;
+    }
+}
+
+int shortcuts = 0;
+
+for (int i = 0; i < visited.Count - 1; i++)
+{
+    for (int j = i + 1; j < visited.Count; j++)
+    {
+        Point point1 = visited[i];
+        Point point2 = visited[j];
+        int directDistance = Math.Abs(point1.X - point2.X) + Math.Abs(point1.Y - point2.Y);
+        int pathDistance = Get(distances, point2) - Get(distances, point1);
+        if (directDistance <= lapse && pathDistance - directDistance >= save)
+        {
+            shortcuts++;
+        }
+    }
+}
+
+static Point? VisitTrack(Track track, Size size, Distances distances, Point current, List<Point> visited, int distance)
+{
+    if (visited.Contains(current)) return null;
+    visited.Add(current);
+
+    Set(distances, current, distance);
+
+    Point? next =
+        (from move in new Movement[] {Left, Right, Up, Down}
+        let point = move(size, current)
+        where point is not null && !visited.Contains(point)
+        let item = Get(track, point)
+        where item is empty
+        select point).SingleOrDefault();
+
+    return next;
+}
+
+
+static Point FindPoint(Track track, Size size, char find) =>
+    (from x in Enumerable.Range(0, size.Width)
+    from y in Enumerable.Range(0, size.Height)
+    let point = new Point(x, y)
+    where Get(track, point) == find
+    select point).Single();
+
+static T Get<T>(T[][] track, Point point) =>
+    track[point.Y][point.X];
+
+static void Set<T>(T[][] track, Point point, T obj) =>
+    track[point.Y][point.X] = obj;
+
+static Point? Right(Size size, Point point) =>
+    point.X < size.Width -1 ? new Point(point.X + 1, point.Y) : null;
+
+static Point? Left(Size size, Point point) =>
+    point.X > 0 ? new Point(point.X - 1, point.Y) : null;
+
+static Point? Down(Size size, Point point) =>
+    point.Y < size.Height - 1 ? new Point(point.X, point.Y + 1) : null;
+
+static Point? Up(Size size, Point point) =>
+    point.Y > 0 ? new Point(point.X, point.Y - 1) : null;
+
+record Point(int X, int Y);
+record Step(Point Point, Movement Movement);
+record Size(int Width, int Height);
+
+shortcuts
