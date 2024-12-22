@@ -1,0 +1,196 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Navigator = System.Func<Point, Point, NavigatorResult?>;
+using Operator = System.Func<char, char, System.Collections.Generic.IEnumerable<char>>;
+
+const char left = '<';
+const char right = '>';
+const char up = '^';
+const char down = 'v';
+const char press = 'A';
+const char blank = ' ';
+
+List<string> commands = (from line in System.IO.File.ReadAllLines("input.txt")
+select line).ToList();
+int total = 0;
+
+foreach (string command in commands)
+{
+    int count = 0;
+    char currentNumPad = press;
+    foreach (char c in command)
+    {
+        char currentDPad1 = press;
+        foreach (char d1 in OperateNumPad(currentNumPad, c))
+        {
+            char currentDPad2 = press;
+            foreach (char d2 in OperateDPad(currentDPad1, d1))
+            {
+                foreach (var h in OperateDPad(currentDPad2, d2))
+                {
+                    count++;
+                }
+
+                currentDPad2 = d2;
+            }
+
+            currentDPad1 = d1;
+        }
+
+        currentNumPad = c;
+    }
+
+    int subTotal = count * int.Parse(command.Replace($"{press}", string.Empty));
+    total += subTotal;
+}
+
+IEnumerable<char> OperateNumPad(char from, char to)
+{
+    Point fromPoint = GetNumPadKeyPosition(from);
+    Point toPoint = GetNumPadKeyPosition(to);
+    Point current = fromPoint;
+    Navigator[] navigators = GetNumPadNavigators(fromPoint, toPoint);
+
+    return Navigate(fromPoint, toPoint, navigators);
+    
+}
+
+IEnumerable<char> OperateDPad(char from, char to)
+{
+    Point fromPoint = GetDPadKeyPosition(from);
+    Point toPoint = GetDPadKeyPosition(to);
+    Point current = fromPoint;
+    Navigator[] navigators = GetDPadNavigators(fromPoint, toPoint);
+
+    return Navigate(fromPoint, toPoint, navigators);
+}
+
+IEnumerable<char> Navigate(Point from, Point to, Navigator[] navigators)
+{
+    while(from != to)
+    {
+        foreach (Navigator navigator in navigators)
+        {
+            NavigatorResult? result = navigator.Invoke(from, to);
+            if (result is not null)
+            {
+                from = result.UpdatedPoint;
+                yield return result.Movement;
+                break;
+            }
+        }
+    }
+
+    yield return press;
+}
+
+NavigatorResult? Left(Point from, Point to)
+{
+    if (from.X > to.X)
+    {
+        return new NavigatorResult(new Point(from.X - 1, from.Y), left);
+    }
+
+    return null;
+}
+
+NavigatorResult? Right(Point from, Point to)
+{
+    if (from.X < to.X)
+    {
+        return new NavigatorResult(new Point(from.X + 1, from.Y), right);
+    }
+
+    return null;
+}
+
+NavigatorResult? Up(Point from, Point to)
+{
+    if (from.Y > to.Y)
+    {
+        return new NavigatorResult(new Point(from.X, from.Y - 1), up);
+    }
+
+    return null;
+}
+
+NavigatorResult? Down(Point from, Point to)
+{
+    if (from.Y < to.Y)
+    {
+        return new NavigatorResult(new Point(from.X, from.Y + 1), down);
+    }
+
+    return null;
+}
+
+Point GetNumPadKeyPosition(char key) =>
+    key switch
+    {
+        '1' => new Point(0, 2),
+        '2' => new Point(1, 2),
+        '3' => new Point(2, 2),
+        '4' => new Point(0, 1),
+        '5' => new Point(1, 1),
+        '6' => new Point(2, 1),
+        '7' => new Point(0, 0),
+        '8' => new Point(1, 0),
+        '9' => new Point(2, 0),
+        '0' => new Point(1, 3),
+        press => new Point(2, 3),
+        blank => new Point(0, 3),
+        _ => throw new NotSupportedException("Key is not valid")
+    };
+
+Point GetDPadKeyPosition(char key) =>
+    key switch
+    {
+        left => new Point(0, 1),
+        right => new Point(2, 1),
+        up => new Point(1, 0),
+        down => new Point(1, 1),
+        press => new Point(2, 0),
+        blank => new Point(0, 0),
+        _ => throw new NotSupportedException("Key is not valid")
+    };
+
+record NavigatorResult(Point UpdatedPoint, char Movement);
+
+record Point(int X, int Y);
+
+Navigator[] GetDPadNavigators(Point from, Point to)
+{
+    Point blankPoint = GetDPadKeyPosition(blank);
+    if (from.Y == blankPoint.Y && to.X == blankPoint.X)
+    {
+        return [Up, Right, Down, Left];
+    }
+    else if (from.X == blankPoint.X && to.Y == blankPoint.Y)
+    {
+        return [Down, Left, Right, Up];
+    }
+
+    return [Up, Left, Down, Right];
+}
+
+Navigator[] GetNumPadNavigators(Point from, Point to)
+{
+    Point blankPoint = GetNumPadKeyPosition(blank);
+    if (from.X == blankPoint.X && to.Y == blankPoint.Y)
+    {
+        return [Right, Down, Up, Left];
+    }
+    else if (from.Y == blankPoint.Y && to.X == blankPoint.X)
+    {
+        return [Up, Left, Right, Down];
+    }
+    
+    return [Left, Up, Down, Right];
+}
+
+total
