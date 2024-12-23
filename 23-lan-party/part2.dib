@@ -1,0 +1,52 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#r "nuget:SharpGraphLib"
+#nullable enable
+
+using SharpGraph;
+var edges = 
+    (from pair in System.IO.File.ReadAllLines("input.txt")
+    let nodes = pair.Split('-').ToArray()
+    select new Edge(nodes[0], nodes[1])).ToList();
+
+Graph graph = new(edges);
+HashSet<Node> available = graph.GetNodes();
+HashSet<Node> currentClique = new();
+HashSet<Node> processed = new();
+
+HashSet<Node>? maxClique = BronKerbosch(graph, currentClique, available, processed);
+
+// https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm
+static HashSet<Node>? BronKerbosch(Graph graph, HashSet<Node> R, HashSet<Node> P, HashSet<Node> X)
+{
+    if (P.Count == 0 && X.Count == 0)
+    {
+        return R;
+    }
+
+    List<HashSet<Node>> maxCliques = new();
+    foreach (Node v in P)
+    {
+        List<Node> n = graph.GetAdjacent(v);
+        HashSet<Node> r = new(R.Append(v));
+        HashSet<Node> p = new(P.Intersect(n));
+        HashSet<Node> x = new(X.Intersect(n));
+
+        HashSet<Node>? maxClique = BronKerbosch(graph, r, p, x);
+        if (maxClique is not null)
+        {
+            maxCliques.Add(maxClique);
+        }
+
+        P.Remove(v);
+        X.Add(v);
+    }
+
+    return maxCliques.OrderByDescending(m => m.Count).FirstOrDefault();
+}
+
+string.Join(",", maxClique?.Select(node => node.GetLabel()).OrderBy(label => label) ?? throw new Exception("No max clique"))

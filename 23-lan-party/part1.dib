@@ -1,0 +1,36 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#r "nuget:SharpGraphLib"
+
+using SharpGraph;
+var edges = 
+    (from pair in System.IO.File.ReadAllLines("input.txt")
+    let nodes = pair.Split('-').ToArray()
+    select new Edge(nodes[0], nodes[1])).ToList();
+
+Graph graph = new(edges);
+HashSet<Node> nodes = graph.GetNodes();
+
+HashSet<string> cycles = new();
+foreach (Edge edge in graph.GetEdges())
+{
+    Node from = edge.From();
+    Node to = edge.To();
+    List<Node> fromAdjacent = graph.GetAdjacent(from);
+    List<Node> toAdjacent = graph.GetAdjacent(to);
+    List<Node> sharedAdjacent = fromAdjacent.Intersect(toAdjacent).ToList();
+    foreach (Node node in sharedAdjacent)
+    {
+        string[] vertices = [from.GetLabel(), to.GetLabel(), node.GetLabel()];
+        if (vertices.Any(v => v.StartsWith("t")))
+        {
+            cycles.Add(string.Join("-", vertices.OrderBy(label => label)));
+        }
+    }
+}
+
+cycles.Count()
