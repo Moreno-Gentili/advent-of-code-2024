@@ -26,10 +26,9 @@ foreach (string line in parts[0].Split("\r\n"))
     string name = parts[0];
     bool value = parts[1] != "0";
     wires[name].Post(value);
-    // await Task.Delay(100);
 }
 
-await Task.Delay(4000);
+await Task.Delay(100);
 
 long number = 0;
     wires
@@ -39,7 +38,6 @@ long number = 0;
     .ForEach(w => {
         if (w.Value.TryReceive(b => true, out bool value))
         {
-            Console.WriteLine($"{w} received {value}");
             number += (value ? 1L : 0L) << int.Parse(w.ToString().Trim('[', ']').Split(",").First().Substring(1));
             return;
         }
