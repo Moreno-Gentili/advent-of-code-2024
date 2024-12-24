@@ -1,0 +1,100 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#r "nuget:System.Threading.Tasks.Dataflow"
+#nullable enable
+using System.Threading.Tasks.Dataflow;
+using BooleanGate = System.Func<System.Tuple<bool, bool>, bool>;
+
+string[] parts = System.IO.File.ReadAllText("input.txt").Split("\r\n\r\n");
+Dictionary<string, BroadcastBlock<bool>> wires = new();
+foreach (string link in parts[1].Split("\r\n"))
+{
+    string[] parts = link.Split(" ");
+    BroadcastBlock<bool> inputWire1 = GetOrCreateWire(wires, parts[0]);
+    BroadcastBlock<bool> inputWire2 = GetOrCreateWire(wires, parts[2]);
+    BroadcastBlock<bool> outputWire = GetOrCreateWire(wires, parts[4]);
+    LinkGate(parts[1], inputWire1, inputWire2, outputWire);
+}
+
+foreach (string line in parts[0].Split("\r\n"))
+{
+    string[] parts = line.Split(": ");
+    string name = parts[0];
+    bool value = parts[1] != "0";
+    wires[name].Post(value);
+    // await Task.Delay(100);
+}
+
+await Task.Delay(4000);
+
+long number = 0;
+    wires
+    .Where(w => w.Key.StartsWith("z"))
+    .OrderBy(w => w.Key)
+    .ToList()
+    .ForEach(w => {
+        if (w.Value.TryReceive(b => true, out bool value))
+        {
+            Console.WriteLine($"{w} received {value}");
+            number += (value ? 1L : 0L) << int.Parse(w.ToString().Trim('[', ']').Split(",").First().Substring(1));
+            return;
+        }
+
+        throw new NotSupportedException($"{w} did not receive");
+    });
+
+Console.WriteLine(number);
+
+static void LinkGate(string type, BroadcastBlock<bool> inputWire1, BroadcastBlock<bool> inputWire2, BroadcastBlock<bool> outputWire)
+{
+    JoinBlock<bool, bool> joiner = new JoinBlock<bool, bool>(new GroupingDataflowBlockOptions { Greedy = true, EnsureOrdered = true });
+    inputWire1.LinkTo(joiner.Target1, new DataflowLinkOptions { Append = true });
+    inputWire2.LinkTo(joiner.Target2, new DataflowLinkOptions { Append = true });
+
+    BooleanGate gate = GetBooleanGate(type);
+    TransformBlock<Tuple<bool, bool>, bool> transform = new(gate); 
+    joiner.LinkTo(transform);
+    transform.LinkTo(outputWire, new DataflowLinkOptions { Append = true });
+}
+
+static BroadcastBlock<bool> GetOrCreateWire(Dictionary<string, BroadcastBlock<bool>> wires, string name)
+{
+    if (wires.TryGetValue(name, out BroadcastBlock<bool>? wire))
+    {
+        return wire;
+    }
+
+    wire = new(b => b, new DataflowBlockOptions { NameFormat = name });
+    wires.Add(name, wire);
+
+    return wire;
+}
+
+static BooleanGate GetBooleanGate(string type) =>
+    type switch
+    {
+        "AND" => And,
+        "OR" => Or,
+        "XOR" => Xor,
+        _ => throw new NotSupportedException($"Gate {type} not supported")
+    };
+
+static bool And(Tuple<bool, bool> tuple) =>
+    tuple.Item1 && tuple.Item2;
+
+static bool Or(Tuple<bool, bool> tuple) =>
+    tuple.Item1 || tuple.Item2;
+
+static bool Xor(Tuple<bool, bool> tuple) =>
+    tuple.Item1 != tuple.Item2;
+
+static void AddToResult(Result result, Dictionary<string, byte> results)
+{
+    results.Add(result.Name, result.Value);
+}
+
+record Result(string Name, byte Value);
