@@ -1,0 +1,41 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+var lines = System.IO.File.ReadAllLines("test.txt");
+List<string> towels = new(lines[0].Split(", "));
+
+Dictionary<string, long> cache = new();
+List<string> displays = lines.Skip(2).ToList();
+
+Console.WriteLine(displays.Sum(t => IsDisplayable(towels, t)));
+long IsDisplayable(IEnumerable<string> basicTowels, string display)
+{
+    if (display == "")
+    {
+        return 1;
+    }
+
+    if (cache.TryGetValue(display, out long result))
+    {
+        return result;
+    }
+
+    List<string> subDisplays = new();
+    foreach (string basicTowel in basicTowels)
+    {
+        int index = display.IndexOf(basicTowel);
+        if (index != 0) continue;
+
+        // string subDisplay = display[0..index] + display[(index + basicTowel.Length)..];
+        string subDisplay = display.Substring(basicTowel.Length);
+        subDisplays.Add(subDisplay);
+    }
+
+    long c = subDisplays.Sum(s => IsDisplayable(basicTowels, s));
+    cache.TryAdd(display, c);
+    return c;
+}
