@@ -1,0 +1,58 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+
+List<long> secrets = (from line in System.IO.File.ReadAllLines("test.txt")
+select long.Parse(line)).ToList();
+Dictionary<(int, int, int, int), int> bestSequences = new ();
+
+long total = 0;
+foreach (long secret in secrets)
+{
+    long nextSecret = secret;
+    int? previousSellingPrice = null;
+    HashSet<(int, int, int, int)> sequences = new();
+    List<int> sequence = new();
+    for (int i = 1; i <= 2000; i++)
+    {
+        int currentSellingPrice = Convert.ToInt32(nextSecret % 10);
+        if (previousSellingPrice.HasValue)
+        {
+            sequence.Add(currentSellingPrice - previousSellingPrice.Value);
+        }
+
+        if (sequence.Count > 4)
+        {
+            sequence.RemoveAt(0);
+        }
+
+        if (sequence.Count == 4)
+        {
+            (int, int, int, int) currentSequence = (sequence[0], sequence[1], sequence[2], sequence[3]); 
+            if (sequences.Add(currentSequence))
+            {
+                if (!bestSequences.ContainsKey(currentSequence))
+                {
+                    bestSequences[currentSequence] = 0;
+                }
+
+                bestSequences[currentSequence] += currentSellingPrice;
+            }
+        }
+
+        previousSellingPrice = currentSellingPrice;
+
+        nextSecret = (nextSecret ^ (nextSecret * 64)) % 16777216;
+        nextSecret = (nextSecret ^ (nextSecret / 32)) % 16777216;
+        nextSecret = (nextSecret ^ (nextSecret * 2048)) % 16777216;        
+    }
+
+    total += nextSecret;
+}
+
+
+bestSequences.OrderByDescending(b => b.Value).First().Key
