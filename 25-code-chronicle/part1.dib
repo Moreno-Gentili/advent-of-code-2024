@@ -1,0 +1,55 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using System.Threading.Tasks.Dataflow;
+using BooleanGate = System.Func<System.Tuple<bool, bool>, bool>;
+
+const char height = '#';
+
+Schematic[] schematics =
+(from schematic in System.IO.File.ReadAllText("test.txt").Split("\r\n\r\n")
+select Schematic.FromRows(schematic.Split("\r\n"))).ToArray();
+
+Schematic[] keys = schematics.Where(s => s.Type == SchematicType.Key).ToArray();
+Schematic[] locks = schematics.Where(s => s.Type == SchematicType.Lock).ToArray();
+
+int count = 0;
+foreach (Schematic k in keys)
+{
+    foreach (Schematic l in locks)
+    {
+        bool fits = true;
+        for (int i = 0; i < 5; i++)
+        {
+            if (l.Heights[i] + k.Heights[i] > 5)
+            {
+                fits = false;
+                break;
+            }
+        }
+
+        if (fits) count++;
+    }
+}
+
+record Schematic(int[] Heights, SchematicType Type)
+{
+    public static Schematic FromRows(string[] rows)
+    {        
+        SchematicType type = rows[0][0] == '#' ? SchematicType.Lock : SchematicType.Key;
+        int[] heights = (from index in Enumerable.Range(0, 5) select rows.Count(row => row[index] == height) - 1).ToArray();
+        return new Schematic(heights, type);
+    }
+}
+
+enum SchematicType
+{
+    Lock,
+    Key
+}
+
+schematics
