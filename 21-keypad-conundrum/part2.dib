@@ -1,0 +1,248 @@
+#!meta
+
+{"kernelInfo":{"defaultKernelName":"csharp","items":[{"aliases":[],"languageName":"csharp","name":"csharp"}]}}
+
+#!csharp
+
+#nullable enable
+using Navigator = System.Func<Point, Point, NavigatorResult?>;
+using Cache = System.Collections.Generic.Dictionary<(char, char), long>;
+using Operator = System.Func<char, char, System.Collections.Generic.Dictionary<(char, char), long>, System.Collections.Generic.IEnumerable<char>>;
+
+const char left = '<';
+const char right = '>';
+const char up = '^';
+const char down = 'v';
+const char press = 'A';
+const char blank = ' ';
+
+List<string> commands = (from line in System.IO.File.ReadAllLines("input.txt")
+select line).ToList();
+long total = 0;
+
+Operator[] operators = [OperateNumPad, ..Enumerable.Repeat<Operator>(OperateDPad, 10), FromCache];
+Operator[] dpadOperators = [..Enumerable.Repeat<Operator>(OperateDPad, 15)];
+
+(char, char)[] dpadMovements = [
+    (left, up), (left, right), (left, down), (left, press), (left, left),
+    (right, up), (right, left), (right, down), (right, press), (right, right),
+    (up, right), (up, left), (up, down), (up, press), (up, up),
+    (down, right), (down, left), (down, up), (down, press), (down, down),
+    (press, right), (press, left), (press, up), (press, down), (press, press)
+];
+
+if (dpadMovements.Distinct().Count() != 25) throw new InvalidOperationException("Wrong");
+Cache cache = new();
+
+foreach (var dpadMovement in dpadMovements)
+{
+    long count = ProcessOperator(dpadOperators, 0, dpadMovement.Item1, dpadMovement.Item2, cache);
+    cache.Add(dpadMovement, count);
+}
+
+foreach (string command in commands)
+{
+    long count = 0;
+    char currentNumPad = press;
+    foreach (char c in command)
+    {
+        count += ProcessOperator(operators, 0, currentNumPad, c, cache);
+        currentNumPad = c;
+    }
+
+    long subTotal = count * long.Parse(command.Replace($"{press}", string.Empty));
+    total += subTotal;
+}
+
+static long ProcessOperator(Operator[] op, int index, char current, char key, Cache cache)
+{
+    long count = 0;
+    char previous = press;
+    Func<Operator[], int, char, char, Cache, long> func = index == op.Length - 2 ? ProcessFinalOperator : ProcessOperator;
+    foreach (char k in op[index](current, key, cache))
+    {
+        count += func(op, index + 1, previous, k, cache);
+        previous = k;
+    }
+
+    return count;
+}
+
+static long ProcessFinalOperator(Operator[] op, int index, char current, char key, Cache cache)
+{
+    var enumerable = op[index](current, key, cache);
+    if (enumerable is ICollection<char> coll)
+    {
+        return Convert.ToInt64(coll.Count);
+    }
+    else
+    {
+        return enumerable.LongCount();
+    }
+}
+
+static IEnumerable<char> OperateNumPad(char from, char to, Cache cache)
+{
+    Point fromPoint = GetNumPadKeyPosition(from);
+    Point toPoint = GetNumPadKeyPosition(to);
+    Point current = fromPoint;
+    Navigator[] navigators = GetNumPadNavigators(fromPoint, toPoint);
+
+    return Navigate(fromPoint, toPoint, navigators);
+    
+}
+
+static IEnumerable<char> OperateDPad(char from, char to, Cache cache)
+{
+    Point fromPoint = GetDPadKeyPosition(from);
+    Point toPoint = GetDPadKeyPosition(to);
+    Point current = fromPoint;
+    Navigator[] navigators = GetDPadNavigators(fromPoint, toPoint);
+
+    return Navigate(fromPoint, toPoint, navigators);
+}
+
+static IEnumerable<char> FromCache(char from, char to, Cache cache)
+{
+    long count = cache[(from, to)];
+    if (count > int.MaxValue) throw new OverflowException("Too many items");
+    return new CachedCollection(Convert.ToInt32(count));
+}
+
+static IEnumerable<char> Navigate(Point from, Point to, Navigator[] navigators)
+{
+    while(from != to)
+    {
+        foreach (Navigator navigator in navigators)
+        {
+            NavigatorResult? result = navigator.Invoke(from, to);
+            if (result is not null)
+            {
+                from = result.UpdatedPoint;
+                yield return result.Movement;
+                break;
+            }
+        }
+    }
+
+    yield return press;
+}
+
+static NavigatorResult? Left(Point from, Point to)
+{
+    if (from.X > to.X)
+    {
+        return new NavigatorResult(new Point(from.X - 1, from.Y), left);
+    }
+
+    return null;
+}
+
+static NavigatorResult? Right(Point from, Point to)
+{
+    if (from.X < to.X)
+    {
+        return new NavigatorResult(new Point(from.X + 1, from.Y), right);
+    }
+
+    return null;
+}
+
+static NavigatorResult? Up(Point from, Point to)
+{
+    if (from.Y > to.Y)
+    {
+        return new NavigatorResult(new Point(from.X, from.Y - 1), up);
+    }
+
+    return null;
+}
+
+static NavigatorResult? Down(Point from, Point to)
+{
+    if (from.Y < to.Y)
+    {
+        return new NavigatorResult(new Point(from.X, from.Y + 1), down);
+    }
+
+    return null;
+}
+
+static Point GetNumPadKeyPosition(char key) =>
+    key switch
+    {
+        '1' => new Point(0, 2),
+        '2' => new Point(1, 2),
+        '3' => new Point(2, 2),
+        '4' => new Point(0, 1),
+        '5' => new Point(1, 1),
+        '6' => new Point(2, 1),
+        '7' => new Point(0, 0),
+        '8' => new Point(1, 0),
+        '9' => new Point(2, 0),
+        '0' => new Point(1, 3),
+        press => new Point(2, 3),
+        blank => new Point(0, 3),
+        _ => throw new NotSupportedException("Key is not valid")
+    };
+
+static Point GetDPadKeyPosition(char key) =>
+    key switch
+    {
+        left => new Point(0, 1),
+        right => new Point(2, 1),
+        up => new Point(1, 0),
+        down => new Point(1, 1),
+        press => new Point(2, 0),
+        blank => new Point(0, 0),
+        _ => throw new NotSupportedException($"Key '{key}' is not valid")
+    };
+
+record NavigatorResult(Point UpdatedPoint, char Movement);
+
+record Point(int X, int Y);
+
+static Navigator[] GetDPadNavigators(Point from, Point to)
+{
+    Point blankPoint = GetDPadKeyPosition(blank);
+    if (from.Y == blankPoint.Y && to.X == blankPoint.X)
+    {
+        return [Up, Right, Down, Left];
+    }
+    else if (from.X == blankPoint.X && to.Y == blankPoint.Y)
+    {
+        return [Down, Left, Right, Up];
+    }
+
+    return [Left, Up, Down, Right];
+}
+
+static Navigator[] GetNumPadNavigators(Point from, Point to)
+{
+    Point blankPoint = GetNumPadKeyPosition(blank);
+    if (from.X == blankPoint.X && to.Y == blankPoint.Y)
+    {
+        return [Right, Down, Up, Left];
+    }
+    else if (from.Y == blankPoint.Y && to.X == blankPoint.X)
+    {
+        return [Up, Left, Right, Down];
+    }
+    
+    return [Left, Down, Up, Right];
+}
+
+public class CachedCollection(int count) : ICollection<char>
+{
+    public int Count => count;
+    public bool IsReadOnly => true;
+    public void Add(char item) => throw new NotImplementedException();
+    public void Clear() => throw new NotImplementedException();
+    public bool Contains(char item) => throw new NotImplementedException();
+    public void CopyTo(char[] array, int arrayIndex) => throw new NotImplementedException();
+    public bool Remove(char item) => throw new NotImplementedException();
+    public IEnumerator<char> GetEnumerator() => throw new NotImplementedException();
+    IEnumerator IEnumerable.GetEnumerator() => throw new NotImplementedException();
+}
+
+total
