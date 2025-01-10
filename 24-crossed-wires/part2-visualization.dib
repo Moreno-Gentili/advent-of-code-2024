@@ -41,7 +41,7 @@ for (int z = 0; z <= xy + 1; z++)
     sb.Add($"""<g><circle cx="{cx}" cy="{cy}" r="{r}" fill="purple"></circle><text x="{cx}" y="{cy}" text-anchor="middle" fill="white" dy=".3em">{label}</text></g>""");
 }
 
-var parts = System.IO.File.ReadAllText("input4.txt").Split("\r\n\r\n");
+var parts = System.IO.File.ReadAllText("input.txt").Split("\r\n\r\n");
 var nodes = parts[1].Split("\r\n").ToList();
 
 HashSet<(int, int)> placed = new();
@@ -95,5 +95,36 @@ while (nodes.Count > 0)
 
 }
 
-
-string.Join("\r\n", sb)
+System.IO.File.WriteAllText("part2-visualization.svg", $$$"""
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 3760">
+  <defs>
+    <marker
+      id="arrow"
+      viewBox="0 0 10 10"
+      refX="5"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+    <marker
+      id="dot"
+      viewBox="0 0 10 10"
+      refX="5"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse">
+      <circle r="5" cx="5" cy="5" />
+    </marker>
+  </defs>
+  <style>
+    line:hover {
+      stroke: gold;
+      stroke-width: 2px;
+    }
+  </style>
+  {{{string.Join("\r\n", sb)}}}
+</svg>
+""");
