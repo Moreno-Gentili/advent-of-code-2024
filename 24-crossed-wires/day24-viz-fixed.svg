@@ -1,0 +1,788 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 3760">
+  <defs>
+    <!-- A marker to be used as an arrowhead -->
+    <marker
+      id="arrow"
+      viewBox="0 0 10 10"
+      refX="5"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" />
+    </marker>
+    <marker
+      id="dot"
+      viewBox="0 0 10 10"
+      refX="5"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse">
+      <circle r="5" cx="5" cy="5" />
+    </marker>
+  </defs>
+  <style>
+    line:hover {
+      stroke: gold;
+      stroke-width: 2px;
+    }
+  </style>
+
+<g><circle cx="280" cy="3600" r="16" fill="gray"></circle><text x="280" y="3600" text-anchor="middle" fill="white" dy=".3em">jjn</text></g>
+<g><circle cx="280" cy="3480" r="16" fill="gray"></circle><text x="280" y="3480" text-anchor="middle" fill="white" dy=".3em">jvs</text></g>
+<g><circle cx="280" cy="3520" r="16" fill="gray"></circle><text x="280" y="3520" text-anchor="middle" fill="white" dy=".3em">wtr</text></g>
+<g><circle cx="280" cy="3400" r="16" fill="gray"></circle><text x="280" y="3400" text-anchor="middle" fill="white" dy=".3em">brq</text></g>
+<g><circle cx="280" cy="3440" r="16" fill="gray"></circle><text x="280" y="3440" text-anchor="middle" fill="white" dy=".3em">fgf</text></g>
+<g><circle cx="280" cy="3320" r="16" fill="gray"></circle><text x="280" y="3320" text-anchor="middle" fill="white" dy=".3em">ngw</text></g>
+<g><circle cx="280" cy="3360" r="16" fill="gray"></circle><text x="280" y="3360" text-anchor="middle" fill="white" dy=".3em">jsc</text></g>
+<g><circle cx="280" cy="3240" r="16" fill="gray"></circle><text x="280" y="3240" text-anchor="middle" fill="white" dy=".3em">tkt</text></g>
+<g><circle cx="280" cy="3280" r="16" fill="gray"></circle><text x="280" y="3280" text-anchor="middle" fill="white" dy=".3em">nnr</text></g>
+<g><circle cx="280" cy="3160" r="16" fill="gray"></circle><text x="280" y="3160" text-anchor="middle" fill="white" dy=".3em">tqv</text></g>
+<g><circle cx="280" cy="3200" r="16" fill="gray"></circle><text x="280" y="3200" text-anchor="middle" fill="white" dy=".3em">vts</text></g>
+<g><circle cx="280" cy="3080" r="16" fill="gray"></circle><text x="280" y="3080" text-anchor="middle" fill="white" dy=".3em">hvd</text></g>
+<g><circle cx="280" cy="3120" r="16" fill="gray"></circle><text x="280" y="3120" text-anchor="middle" fill="white" dy=".3em">ftr</text></g>
+<g><circle cx="280" cy="3000" r="16" fill="gray"></circle><text x="280" y="3000" text-anchor="middle" fill="white" dy=".3em">wsr</text></g>
+<g><circle cx="280" cy="3040" r="16" fill="gray"></circle><text x="280" y="3040" text-anchor="middle" fill="white" dy=".3em">pck</text></g>
+<g><circle cx="280" cy="2920" r="16" fill="gray"></circle><text x="280" y="2920" text-anchor="middle" fill="white" dy=".3em">hvn</text></g>
+<g><circle cx="280" cy="2960" r="16" fill="gray"></circle><text x="280" y="2960" text-anchor="middle" fill="white" dy=".3em">tcw</text></g>
+<g><circle cx="280" cy="2840" r="16" fill="gray"></circle><text x="280" y="2840" text-anchor="middle" fill="white" dy=".3em">jbp</text></g>
+<g><circle cx="280" cy="2880" r="16" fill="gray"></circle><text x="280" y="2880" text-anchor="middle" fill="white" dy=".3em">qrg</text></g>
+<g><circle cx="280" cy="2760" r="16" fill="gray"></circle><text x="280" y="2760" text-anchor="middle" fill="white" dy=".3em">dtj</text></g>
+<g><circle cx="280" cy="2800" r="16" fill="gray"></circle><text x="280" y="2800" text-anchor="middle" fill="white" dy=".3em">rbm</text></g>
+<g><circle cx="280" cy="2680" r="16" fill="gray"></circle><text x="280" y="2680" text-anchor="middle" fill="white" dy=".3em">cqg</text></g>
+<g><circle cx="280" cy="2720" r="16" fill="gray"></circle><text x="280" y="2720" text-anchor="middle" fill="white" dy=".3em">mvb</text></g>
+<g><circle cx="280" cy="2600" r="16" fill="gray"></circle><text x="280" y="2600" text-anchor="middle" fill="white" dy=".3em">ncd</text></g>
+<g><circle cx="280" cy="2640" r="16" fill="gray"></circle><text x="280" y="2640" text-anchor="middle" fill="white" dy=".3em">mpd</text></g>
+<g><circle cx="280" cy="2520" r="16" fill="gray"></circle><text x="280" y="2520" text-anchor="middle" fill="white" dy=".3em">fhg</text></g>
+<g><circle cx="280" cy="2560" r="16" fill="gray"></circle><text x="280" y="2560" text-anchor="middle" fill="white" dy=".3em">ncb</text></g>
+<g><circle cx="280" cy="2440" r="16" fill="gray"></circle><text x="280" y="2440" text-anchor="middle" fill="white" dy=".3em">nhk</text></g>
+<g><circle cx="280" cy="2480" r="16" fill="gray"></circle><text x="280" y="2480" text-anchor="middle" fill="white" dy=".3em">dmm</text></g>
+<g><circle cx="280" cy="2360" r="16" fill="gray"></circle><text x="280" y="2360" text-anchor="middle" fill="white" dy=".3em">stw</text></g>
+<g><circle cx="280" cy="2400" r="16" fill="gray"></circle><text x="280" y="2400" text-anchor="middle" fill="white" dy=".3em">twb</text></g>
+<g><circle cx="280" cy="2280" r="16" fill="gray"></circle><text x="280" y="2280" text-anchor="middle" fill="white" dy=".3em">hff</text></g>
+<g><circle cx="280" cy="2320" r="16" fill="gray"></circle><text x="280" y="2320" text-anchor="middle" fill="white" dy=".3em">pkq</text></g>
+<g><circle cx="280" cy="2200" r="16" fill="gray"></circle><text x="280" y="2200" text-anchor="middle" fill="white" dy=".3em">wrw</text></g>
+<g><circle cx="280" cy="2240" r="16" fill="gray"></circle><text x="280" y="2240" text-anchor="middle" fill="white" dy=".3em">rmp</text></g>
+<g><circle cx="280" cy="2120" r="16" fill="gray"></circle><text x="280" y="2120" text-anchor="middle" fill="white" dy=".3em">vvj</text></g>
+<g><circle cx="280" cy="2160" r="16" fill="gray"></circle><text x="280" y="2160" text-anchor="middle" fill="white" dy=".3em">gbg</text></g>
+<g><circle cx="280" cy="2040" r="16" fill="gray"></circle><text x="280" y="2040" text-anchor="middle" fill="white" dy=".3em">qtv</text></g>
+<g><circle cx="280" cy="2080" r="16" fill="gray"></circle><text x="280" y="2080" text-anchor="middle" fill="white" dy=".3em">hdb</text></g>
+<g><circle cx="280" cy="1960" r="16" fill="gray"></circle><text x="280" y="1960" text-anchor="middle" fill="white" dy=".3em">crv</text></g>
+<g><circle cx="280" cy="2000" r="16" fill="gray"></circle><text x="280" y="2000" text-anchor="middle" fill="white" dy=".3em">hjt</text></g>
+<g><circle cx="280" cy="1880" r="16" fill="gray"></circle><text x="280" y="1880" text-anchor="middle" fill="white" dy=".3em">nph</text></g>
+<g><circle cx="280" cy="1920" r="16" fill="gray"></circle><text x="280" y="1920" text-anchor="middle" fill="white" dy=".3em">tjm</text></g>
+<g><circle cx="280" cy="1800" r="16" fill="gray"></circle><text x="280" y="1800" text-anchor="middle" fill="white" dy=".3em">nbc</text></g>
+<g><circle cx="280" cy="1840" r="16" fill="gray"></circle><text x="280" y="1840" text-anchor="middle" fill="white" dy=".3em">drg</text></g>
+<g><circle cx="280" cy="1720" r="16" fill="gray"></circle><text x="280" y="1720" text-anchor="middle" fill="white" dy=".3em">hwm</text></g>
+<g><circle cx="280" cy="1760" r="16" fill="gray"></circle><text x="280" y="1760" text-anchor="middle" fill="white" dy=".3em">dvs</text></g>
+<g><circle cx="280" cy="1640" r="16" fill="gray"></circle><text x="280" y="1640" text-anchor="middle" fill="white" dy=".3em">wst</text></g>
+<g><circle cx="280" cy="1680" r="16" fill="gray"></circle><text x="280" y="1680" text-anchor="middle" fill="white" dy=".3em">wqs</text></g>
+<g><circle cx="280" cy="1560" r="16" fill="gray"></circle><text x="280" y="1560" text-anchor="middle" fill="white" dy=".3em">vtk</text></g>
+<g><circle cx="280" cy="1600" r="16" fill="gray"></circle><text x="280" y="1600" text-anchor="middle" fill="white" dy=".3em">hwf</text></g>
+<g><circle cx="280" cy="1480" r="16" fill="gray"></circle><text x="280" y="1480" text-anchor="middle" fill="white" dy=".3em">cjm</text></g>
+<g><circle cx="280" cy="1520" r="16" fill="gray"></circle><text x="280" y="1520" text-anchor="middle" fill="white" dy=".3em">tps</text></g>
+<g><circle cx="280" cy="1400" r="16" fill="gray"></circle><text x="280" y="1400" text-anchor="middle" fill="white" dy=".3em">qvc</text></g>
+<g><circle cx="280" cy="1440" r="16" fill="gray"></circle><text x="280" y="1440" text-anchor="middle" fill="white" dy=".3em">tpd</text></g>
+<g><circle cx="280" cy="1320" r="16" fill="gray"></circle><text x="280" y="1320" text-anchor="middle" fill="white" dy=".3em">tpn</text></g>
+<g><circle cx="280" cy="1360" r="16" fill="gray"></circle><text x="280" y="1360" text-anchor="middle" fill="white" dy=".3em">jjc</text></g>
+<g><circle cx="280" cy="1240" r="16" fill="gray"></circle><text x="280" y="1240" text-anchor="middle" fill="white" dy=".3em">bst</text></g>
+<g><circle cx="280" cy="1280" r="16" fill="gray"></circle><text x="280" y="1280" text-anchor="middle" fill="white" dy=".3em">rfj</text></g>
+<g><circle cx="280" cy="1160" r="16" fill="gray"></circle><text x="280" y="1160" text-anchor="middle" fill="white" dy=".3em">fbv</text></g>
+<g><circle cx="280" cy="1200" r="16" fill="gray"></circle><text x="280" y="1200" text-anchor="middle" fill="white" dy=".3em">ttr</text></g>
+<g><circle cx="280" cy="1080" r="16" fill="gray"></circle><text x="280" y="1080" text-anchor="middle" fill="white" dy=".3em">tpv</text></g>
+<g><circle cx="280" cy="1120" r="16" fill="gray"></circle><text x="280" y="1120" text-anchor="middle" fill="white" dy=".3em">cfk</text></g>
+<g><circle cx="280" cy="1000" r="16" fill="gray"></circle><text x="280" y="1000" text-anchor="middle" fill="white" dy=".3em">hcg</text></g>
+<g><circle cx="280" cy="1040" r="16" fill="gray"></circle><text x="280" y="1040" text-anchor="middle" fill="white" dy=".3em">fbn</text></g>
+<g><circle cx="280" cy="920" r="16" fill="gray"></circle><text x="280" y="920" text-anchor="middle" fill="white" dy=".3em">wmd</text></g>
+<g><circle cx="280" cy="960" r="16" fill="gray"></circle><text x="280" y="960" text-anchor="middle" fill="white" dy=".3em">trg</text></g>
+<g><circle cx="280" cy="840" r="16" fill="gray"></circle><text x="280" y="840" text-anchor="middle" fill="white" dy=".3em">tjg</text></g>
+<g><circle cx="280" cy="880" r="16" fill="gray"></circle><text x="280" y="880" text-anchor="middle" fill="white" dy=".3em">pvt</text></g>
+<g><circle cx="280" cy="760" r="16" fill="gray"></circle><text x="280" y="760" text-anchor="middle" fill="white" dy=".3em">bnk</text></g>
+<g><circle cx="280" cy="800" r="16" fill="gray"></circle><text x="280" y="800" text-anchor="middle" fill="white" dy=".3em">sht</text></g>
+<g><circle cx="280" cy="680" r="16" fill="gray"></circle><text x="280" y="680" text-anchor="middle" fill="white" dy=".3em">vdr</text></g>
+<g><circle cx="280" cy="720" r="16" fill="gray"></circle><text x="280" y="720" text-anchor="middle" fill="white" dy=".3em">qqm</text></g>
+<g><circle cx="280" cy="600" r="16" fill="gray"></circle><text x="280" y="600" text-anchor="middle" fill="white" dy=".3em">mjm</text></g>
+<g><circle cx="280" cy="640" r="16" fill="gray"></circle><text x="280" y="640" text-anchor="middle" fill="white" dy=".3em">qgv</text></g>
+<g><circle cx="280" cy="520" r="16" fill="gray"></circle><text x="280" y="520" text-anchor="middle" fill="white" dy=".3em">gdp</text></g>
+<g><circle cx="280" cy="560" r="16" fill="gray"></circle><text x="280" y="560" text-anchor="middle" fill="white" dy=".3em">rrh</text></g>
+<g><circle cx="280" cy="440" r="16" fill="gray"></circle><text x="280" y="440" text-anchor="middle" fill="white" dy=".3em">mtg</text></g>
+<g><circle cx="280" cy="480" r="16" fill="gray"></circle><text x="280" y="480" text-anchor="middle" fill="white" dy=".3em">bqd</text></g>
+<g><circle cx="280" cy="360" r="16" fill="gray"></circle><text x="280" y="360" text-anchor="middle" fill="white" dy=".3em">qqd</text></g>
+<g><circle cx="280" cy="400" r="16" fill="gray"></circle><text x="280" y="400" text-anchor="middle" fill="white" dy=".3em">kqr</text></g>
+<g><circle cx="280" cy="280" r="16" fill="gray"></circle><text x="280" y="280" text-anchor="middle" fill="white" dy=".3em">chb</text></g>
+<g><circle cx="280" cy="320" r="16" fill="gray"></circle><text x="280" y="320" text-anchor="middle" fill="white" dy=".3em">jcf</text></g>
+<g><circle cx="280" cy="200" r="16" fill="gray"></circle><text x="280" y="200" text-anchor="middle" fill="white" dy=".3em">ggg</text></g>
+<g><circle cx="280" cy="240" r="16" fill="gray"></circle><text x="280" y="240" text-anchor="middle" fill="white" dy=".3em">nwp</text></g>
+<g><circle cx="280" cy="120" r="16" fill="gray"></circle><text x="280" y="120" text-anchor="middle" fill="white" dy=".3em">ghb</text></g>
+<g><circle cx="280" cy="40" r="16" fill="gray"></circle><text x="280" y="40" text-anchor="middle" fill="white" dy=".3em">whj</text></g>
+<g><circle cx="160" cy="2400" r="16" fill="gray"></circle><text x="160" y="2400" text-anchor="middle" fill="white" dy=".3em">gdg</text></g>
+<g><circle cx="160" cy="1360" r="16" fill="gray"></circle><text x="160" y="1360" text-anchor="middle" fill="white" dy=".3em">pkj</text></g>
+<g><circle cx="160" cy="1520" r="16" fill="gray"></circle><text x="160" y="1520" text-anchor="middle" fill="white" dy=".3em">mms</text></g>
+<g><circle cx="160" cy="1760" r="16" fill="gray"></circle><text x="160" y="1760" text-anchor="middle" fill="white" dy=".3em">jhm</text></g>
+<g><circle cx="160" cy="2720" r="16" fill="gray"></circle><text x="160" y="2720" text-anchor="middle" fill="white" dy=".3em">jbr</text></g>
+<g><circle cx="160" cy="3120" r="16" fill="gray"></circle><text x="160" y="3120" text-anchor="middle" fill="white" dy=".3em">shj</text></g>
+<g><circle cx="160" cy="3040" r="16" fill="gray"></circle><text x="160" y="3040" text-anchor="middle" fill="white" dy=".3em">bdm</text></g>
+<g><circle cx="160" cy="2800" r="16" fill="gray"></circle><text x="160" y="2800" text-anchor="middle" fill="white" dy=".3em">cbc</text></g>
+<g><circle cx="160" cy="800" r="16" fill="gray"></circle><text x="160" y="800" text-anchor="middle" fill="white" dy=".3em">cbf</text></g>
+<g><circle cx="160" cy="2320" r="16" fill="gray"></circle><text x="160" y="2320" text-anchor="middle" fill="white" dy=".3em">hwh</text></g>
+<g><circle cx="160" cy="2240" r="16" fill="gray"></circle><text x="160" y="2240" text-anchor="middle" fill="white" dy=".3em">bqv</text></g>
+<g><circle cx="160" cy="3520" r="16" fill="gray"></circle><text x="160" y="3520" text-anchor="middle" fill="white" dy=".3em">jpt</text></g>
+<g><circle cx="160" cy="960" r="16" fill="gray"></circle><text x="160" y="960" text-anchor="middle" fill="white" dy=".3em">vjn</text></g>
+<g><circle cx="160" cy="1120" r="16" fill="gray"></circle><text x="160" y="1120" text-anchor="middle" fill="white" dy=".3em">mnv</text></g>
+<g><circle cx="160" cy="1280" r="16" fill="gray"></circle><text x="160" y="1280" text-anchor="middle" fill="white" dy=".3em">rgt</text></g>
+<g><circle cx="160" cy="2880" r="16" fill="gray"></circle><text x="160" y="2880" text-anchor="middle" fill="white" dy=".3em">vcs</text></g>
+<g><circle cx="160" cy="240" r="16" fill="gray"></circle><text x="160" y="240" text-anchor="middle" fill="white" dy=".3em">dkg</text></g>
+<g><circle cx="160" cy="1600" r="16" fill="gray"></circle><text x="160" y="1600" text-anchor="middle" fill="white" dy=".3em">rws</text></g>
+<g><circle cx="160" cy="560" r="16" fill="gray"></circle><text x="160" y="560" text-anchor="middle" fill="white" dy=".3em">vnm</text></g>
+<g><circle cx="160" cy="640" r="16" fill="gray"></circle><text x="160" y="640" text-anchor="middle" fill="white" dy=".3em">stm</text></g>
+<g><circle cx="160" cy="1920" r="16" fill="gray"></circle><text x="160" y="1920" text-anchor="middle" fill="white" dy=".3em">wjv</text></g>
+<g><circle cx="160" cy="1680" r="16" fill="gray"></circle><text x="160" y="1680" text-anchor="middle" fill="white" dy=".3em">jtn</text></g>
+<g><circle cx="160" cy="160" r="16" fill="gray"></circle><text x="160" y="160" text-anchor="middle" fill="white" dy=".3em">wwc</text></g>
+<g><circle cx="160" cy="400" r="16" fill="gray"></circle><text x="160" y="400" text-anchor="middle" fill="white" dy=".3em">vbj</text></g>
+<g><circle cx="160" cy="1440" r="16" fill="gray"></circle><text x="160" y="1440" text-anchor="middle" fill="white" dy=".3em">wcn</text></g>
+<g><circle cx="160" cy="480" r="16" fill="gray"></circle><text x="160" y="480" text-anchor="middle" fill="white" dy=".3em">cph</text></g>
+<g><circle cx="160" cy="1200" r="16" fill="gray"></circle><text x="160" y="1200" text-anchor="middle" fill="white" dy=".3em">drk</text></g>
+<g><circle cx="160" cy="2000" r="16" fill="gray"></circle><text x="160" y="2000" text-anchor="middle" fill="white" dy=".3em">wgw</text></g>
+<g><circle cx="160" cy="3600" r="16" fill="gray"></circle><text x="160" y="3600" text-anchor="middle" fill="white" dy=".3em">vbd</text></g>
+<g><circle cx="160" cy="1840" r="16" fill="gray"></circle><text x="160" y="1840" text-anchor="middle" fill="white" dy=".3em">tdc</text></g>
+<g><circle cx="160" cy="2160" r="16" fill="gray"></circle><text x="160" y="2160" text-anchor="middle" fill="white" dy=".3em">dnj</text></g>
+<g><circle cx="160" cy="320" r="16" fill="gray"></circle><text x="160" y="320" text-anchor="middle" fill="white" dy=".3em">kbg</text></g>
+<g><circle cx="160" cy="2960" r="16" fill="gray"></circle><text x="160" y="2960" text-anchor="middle" fill="white" dy=".3em">grd</text></g>
+<g><circle cx="160" cy="2080" r="16" fill="gray"></circle><text x="160" y="2080" text-anchor="middle" fill="white" dy=".3em">cvf</text></g>
+<g><circle cx="160" cy="3360" r="16" fill="gray"></circle><text x="160" y="3360" text-anchor="middle" fill="white" dy=".3em">wvq</text></g>
+<g><circle cx="160" cy="3280" r="16" fill="gray"></circle><text x="160" y="3280" text-anchor="middle" fill="white" dy=".3em">www</text></g>
+<g><circle cx="160" cy="720" r="16" fill="gray"></circle><text x="160" y="720" text-anchor="middle" fill="white" dy=".3em">gvw</text></g>
+<g><circle cx="160" cy="2480" r="16" fill="gray"></circle><text x="160" y="2480" text-anchor="middle" fill="white" dy=".3em">bgs</text></g>
+<g><circle cx="160" cy="880" r="16" fill="gray"></circle><text x="160" y="880" text-anchor="middle" fill="white" dy=".3em">fnt</text></g>
+<g><circle cx="160" cy="1040" r="16" fill="gray"></circle><text x="160" y="1040" text-anchor="middle" fill="white" dy=".3em">qvh</text></g>
+<g><circle cx="160" cy="3200" r="16" fill="gray"></circle><text x="160" y="3200" text-anchor="middle" fill="white" dy=".3em">bmb</text></g>
+<g><circle cx="160" cy="2560" r="16" fill="gray"></circle><text x="160" y="2560" text-anchor="middle" fill="white" dy=".3em">mqk</text></g>
+<g><circle cx="160" cy="3440" r="16" fill="gray"></circle><text x="160" y="3440" text-anchor="middle" fill="white" dy=".3em">ksk</text></g>
+<g><circle cx="160" cy="2640" r="16" fill="gray"></circle><text x="160" y="2640" text-anchor="middle" fill="white" dy=".3em">wnj</text></g>
+<g><circle cx="160" cy="1400" r="16" fill="gray"></circle><text x="160" y="1400" text-anchor="middle" fill="white" dy=".3em">djn</text></g>
+<g><circle cx="160" cy="1320" r="16" fill="gray"></circle><text x="160" y="1320" text-anchor="middle" fill="white" dy=".3em">tqq</text></g>
+<g><circle cx="160" cy="840" r="16" fill="gray"></circle><text x="160" y="840" text-anchor="middle" fill="white" dy=".3em">ktf</text></g>
+<g><circle cx="160" cy="1720" r="16" fill="gray"></circle><text x="160" y="1720" text-anchor="middle" fill="white" dy=".3em">mvd</text></g>
+<g><circle cx="160" cy="1240" r="16" fill="gray"></circle><text x="160" y="1240" text-anchor="middle" fill="white" dy=".3em">jgc</text></g>
+<g><circle cx="160" cy="520" r="16" fill="gray"></circle><text x="160" y="520" text-anchor="middle" fill="white" dy=".3em">dqs</text></g>
+<g><circle cx="160" cy="2360" r="16" fill="gray"></circle><text x="160" y="2360" text-anchor="middle" fill="white" dy=".3em">dtd</text></g>
+<g><circle cx="160" cy="2920" r="16" fill="gray"></circle><text x="160" y="2920" text-anchor="middle" fill="white" dy=".3em">jms</text></g>
+<g><circle cx="160" cy="1960" r="16" fill="gray"></circle><text x="160" y="1960" text-anchor="middle" fill="white" dy=".3em">nqr</text></g>
+<g><circle cx="160" cy="1640" r="16" fill="gray"></circle><text x="160" y="1640" text-anchor="middle" fill="white" dy=".3em">mrq</text></g>
+<g><circle cx="160" cy="2280" r="16" fill="gray"></circle><text x="160" y="2280" text-anchor="middle" fill="white" dy=".3em">vbc</text></g>
+<g><circle cx="160" cy="2200" r="16" fill="gray"></circle><text x="160" y="2200" text-anchor="middle" fill="white" dy=".3em">rkd</text></g>
+<g><circle cx="160" cy="440" r="16" fill="gray"></circle><text x="160" y="440" text-anchor="middle" fill="white" dy=".3em">hns</text></g>
+<g><circle cx="160" cy="1080" r="16" fill="gray"></circle><text x="160" y="1080" text-anchor="middle" fill="white" dy=".3em">rsq</text></g>
+<g><circle cx="160" cy="3000" r="16" fill="gray"></circle><text x="160" y="3000" text-anchor="middle" fill="white" dy=".3em">gdn</text></g>
+<g><circle cx="160" cy="3400" r="16" fill="gray"></circle><text x="160" y="3400" text-anchor="middle" fill="white" dy=".3em">rjv</text></g>
+<g><circle cx="160" cy="3240" r="16" fill="gray"></circle><text x="160" y="3240" text-anchor="middle" fill="white" dy=".3em">qsg</text></g>
+<g><circle cx="160" cy="2040" r="16" fill="gray"></circle><text x="160" y="2040" text-anchor="middle" fill="white" dy=".3em">hmb</text></g>
+<g><circle cx="160" cy="3320" r="16" fill="gray"></circle><text x="160" y="3320" text-anchor="middle" fill="white" dy=".3em">wfd</text></g>
+<g><circle cx="160" cy="1800" r="16" fill="gray"></circle><text x="160" y="1800" text-anchor="middle" fill="white" dy=".3em">snh</text></g>
+<g><circle cx="160" cy="760" r="16" fill="gray"></circle><text x="160" y="760" text-anchor="middle" fill="white" dy=".3em">fhh</text></g>
+<g><circle cx="160" cy="40" r="16" fill="gray"></circle><text x="160" y="40" text-anchor="middle" fill="white" dy=".3em">nvv</text></g>
+<g><circle cx="160" cy="1000" r="16" fill="gray"></circle><text x="160" y="1000" text-anchor="middle" fill="white" dy=".3em">cmn</text></g>
+<g><circle cx="160" cy="3480" r="16" fill="gray"></circle><text x="160" y="3480" text-anchor="middle" fill="white" dy=".3em">trf</text></g>
+<g><circle cx="160" cy="2840" r="16" fill="gray"></circle><text x="160" y="2840" text-anchor="middle" fill="white" dy=".3em">ppf</text></g>
+<g><circle cx="160" cy="680" r="16" fill="gray"></circle><text x="160" y="680" text-anchor="middle" fill="white" dy=".3em">qjb</text></g>
+<g><circle cx="160" cy="120" r="16" fill="gray"></circle><text x="160" y="120" text-anchor="middle" fill="white" dy=".3em">nqm</text></g>
+<g><circle cx="160" cy="360" r="16" fill="gray"></circle><text x="160" y="360" text-anchor="middle" fill="white" dy=".3em">jsj</text></g>
+<g><circle cx="160" cy="2520" r="16" fill="gray"></circle><text x="160" y="2520" text-anchor="middle" fill="white" dy=".3em">ndd</text></g>
+<g><circle cx="160" cy="3080" r="16" fill="gray"></circle><text x="160" y="3080" text-anchor="middle" fill="white" dy=".3em">dkn</text></g>
+<g><circle cx="160" cy="1560" r="16" fill="gray"></circle><text x="160" y="1560" text-anchor="middle" fill="white" dy=".3em">pnd</text></g>
+<g><circle cx="160" cy="920" r="16" fill="gray"></circle><text x="160" y="920" text-anchor="middle" fill="white" dy=".3em">smr</text></g>
+<g><circle cx="160" cy="200" r="16" fill="gray"></circle><text x="160" y="200" text-anchor="middle" fill="white" dy=".3em">gws</text></g>
+<g><circle cx="160" cy="3560" r="16" fill="gray"></circle><text x="160" y="3560" text-anchor="middle" fill="white" dy=".3em">ftc</text></g>
+<g><circle cx="160" cy="3160" r="16" fill="gray"></circle><text x="160" y="3160" text-anchor="middle" fill="white" dy=".3em">rvc</text></g>
+<g><circle cx="160" cy="280" r="16" fill="gray"></circle><text x="160" y="280" text-anchor="middle" fill="white" dy=".3em">wgg</text></g>
+<g><circle cx="160" cy="2120" r="16" fill="gray"></circle><text x="160" y="2120" text-anchor="middle" fill="white" dy=".3em">vqh</text></g>
+<g><circle cx="160" cy="1480" r="16" fill="gray"></circle><text x="160" y="1480" text-anchor="middle" fill="white" dy=".3em">jdr</text></g>
+<g><circle cx="160" cy="2680" r="16" fill="gray"></circle><text x="160" y="2680" text-anchor="middle" fill="white" dy=".3em">qgm</text></g>
+<g><circle cx="160" cy="1880" r="16" fill="gray"></circle><text x="160" y="1880" text-anchor="middle" fill="white" dy=".3em">vgr</text></g>
+<g><circle cx="160" cy="2440" r="16" fill="gray"></circle><text x="160" y="2440" text-anchor="middle" fill="white" dy=".3em">mmr</text></g>
+<g><circle cx="160" cy="1160" r="16" fill="gray"></circle><text x="160" y="1160" text-anchor="middle" fill="white" dy=".3em">nfj</text></g>
+<g><circle cx="160" cy="600" r="16" fill="gray"></circle><text x="160" y="600" text-anchor="middle" fill="white" dy=".3em">dsf</text></g>
+<g><circle cx="160" cy="2760" r="16" fill="gray"></circle><text x="160" y="2760" text-anchor="middle" fill="white" dy=".3em">sck</text></g>
+<g><circle cx="160" cy="2600" r="16" fill="gray"></circle><text x="160" y="2600" text-anchor="middle" fill="white" dy=".3em">jfp</text></g>
+<g><circle cx="40" cy="40" r="16" fill="red"></circle><text x="40" y="40" text-anchor="middle" fill="white" dy=".3em">x00</text></g>
+<g><circle cx="40" cy="120" r="16" fill="red"></circle><text x="40" y="120" text-anchor="middle" fill="white" dy=".3em">x01</text></g>
+<g><circle cx="40" cy="200" r="16" fill="red"></circle><text x="40" y="200" text-anchor="middle" fill="white" dy=".3em">x02</text></g>
+<g><circle cx="40" cy="280" r="16" fill="red"></circle><text x="40" y="280" text-anchor="middle" fill="white" dy=".3em">x03</text></g>
+<g><circle cx="40" cy="360" r="16" fill="red"></circle><text x="40" y="360" text-anchor="middle" fill="white" dy=".3em">x04</text></g>
+<g><circle cx="40" cy="440" r="16" fill="red"></circle><text x="40" y="440" text-anchor="middle" fill="white" dy=".3em">x05</text></g>
+<g><circle cx="40" cy="520" r="16" fill="red"></circle><text x="40" y="520" text-anchor="middle" fill="white" dy=".3em">x06</text></g>
+<g><circle cx="40" cy="600" r="16" fill="red"></circle><text x="40" y="600" text-anchor="middle" fill="white" dy=".3em">x07</text></g>
+<g><circle cx="40" cy="680" r="16" fill="red"></circle><text x="40" y="680" text-anchor="middle" fill="white" dy=".3em">x08</text></g>
+<g><circle cx="40" cy="760" r="16" fill="red"></circle><text x="40" y="760" text-anchor="middle" fill="white" dy=".3em">x09</text></g>
+<g><circle cx="40" cy="840" r="16" fill="red"></circle><text x="40" y="840" text-anchor="middle" fill="white" dy=".3em">x10</text></g>
+<g><circle cx="40" cy="920" r="16" fill="red"></circle><text x="40" y="920" text-anchor="middle" fill="white" dy=".3em">x11</text></g>
+<g><circle cx="40" cy="1000" r="16" fill="red"></circle><text x="40" y="1000" text-anchor="middle" fill="white" dy=".3em">x12</text></g>
+<g><circle cx="40" cy="1080" r="16" fill="red"></circle><text x="40" y="1080" text-anchor="middle" fill="white" dy=".3em">x13</text></g>
+<g><circle cx="40" cy="1160" r="16" fill="red"></circle><text x="40" y="1160" text-anchor="middle" fill="white" dy=".3em">x14</text></g>
+<g><circle cx="40" cy="1240" r="16" fill="red"></circle><text x="40" y="1240" text-anchor="middle" fill="white" dy=".3em">x15</text></g>
+<g><circle cx="40" cy="1320" r="16" fill="red"></circle><text x="40" y="1320" text-anchor="middle" fill="white" dy=".3em">x16</text></g>
+<g><circle cx="40" cy="1400" r="16" fill="red"></circle><text x="40" y="1400" text-anchor="middle" fill="white" dy=".3em">x17</text></g>
+<g><circle cx="40" cy="1480" r="16" fill="red"></circle><text x="40" y="1480" text-anchor="middle" fill="white" dy=".3em">x18</text></g>
+<g><circle cx="40" cy="1560" r="16" fill="red"></circle><text x="40" y="1560" text-anchor="middle" fill="white" dy=".3em">x19</text></g>
+<g><circle cx="40" cy="1640" r="16" fill="red"></circle><text x="40" y="1640" text-anchor="middle" fill="white" dy=".3em">x20</text></g>
+<g><circle cx="40" cy="1720" r="16" fill="red"></circle><text x="40" y="1720" text-anchor="middle" fill="white" dy=".3em">x21</text></g>
+<g><circle cx="40" cy="1800" r="16" fill="red"></circle><text x="40" y="1800" text-anchor="middle" fill="white" dy=".3em">x22</text></g>
+<g><circle cx="40" cy="1880" r="16" fill="red"></circle><text x="40" y="1880" text-anchor="middle" fill="white" dy=".3em">x23</text></g>
+<g><circle cx="40" cy="1960" r="16" fill="red"></circle><text x="40" y="1960" text-anchor="middle" fill="white" dy=".3em">x24</text></g>
+<g><circle cx="40" cy="2040" r="16" fill="red"></circle><text x="40" y="2040" text-anchor="middle" fill="white" dy=".3em">x25</text></g>
+<g><circle cx="40" cy="2120" r="16" fill="red"></circle><text x="40" y="2120" text-anchor="middle" fill="white" dy=".3em">x26</text></g>
+<g><circle cx="40" cy="2200" r="16" fill="red"></circle><text x="40" y="2200" text-anchor="middle" fill="white" dy=".3em">x27</text></g>
+<g><circle cx="40" cy="2280" r="16" fill="red"></circle><text x="40" y="2280" text-anchor="middle" fill="white" dy=".3em">x28</text></g>
+<g><circle cx="40" cy="2360" r="16" fill="red"></circle><text x="40" y="2360" text-anchor="middle" fill="white" dy=".3em">x29</text></g>
+<g><circle cx="40" cy="2440" r="16" fill="red"></circle><text x="40" y="2440" text-anchor="middle" fill="white" dy=".3em">x30</text></g>
+<g><circle cx="40" cy="2520" r="16" fill="red"></circle><text x="40" y="2520" text-anchor="middle" fill="white" dy=".3em">x31</text></g>
+<g><circle cx="40" cy="2600" r="16" fill="red"></circle><text x="40" y="2600" text-anchor="middle" fill="white" dy=".3em">x32</text></g>
+<g><circle cx="40" cy="2680" r="16" fill="red"></circle><text x="40" y="2680" text-anchor="middle" fill="white" dy=".3em">x33</text></g>
+<g><circle cx="40" cy="2760" r="16" fill="red"></circle><text x="40" y="2760" text-anchor="middle" fill="white" dy=".3em">x34</text></g>
+<g><circle cx="40" cy="2840" r="16" fill="red"></circle><text x="40" y="2840" text-anchor="middle" fill="white" dy=".3em">x35</text></g>
+<g><circle cx="40" cy="2920" r="16" fill="red"></circle><text x="40" y="2920" text-anchor="middle" fill="white" dy=".3em">x36</text></g>
+<g><circle cx="40" cy="3000" r="16" fill="red"></circle><text x="40" y="3000" text-anchor="middle" fill="white" dy=".3em">x37</text></g>
+<g><circle cx="40" cy="3080" r="16" fill="red"></circle><text x="40" y="3080" text-anchor="middle" fill="white" dy=".3em">x38</text></g>
+<g><circle cx="40" cy="3160" r="16" fill="red"></circle><text x="40" y="3160" text-anchor="middle" fill="white" dy=".3em">x39</text></g>
+<g><circle cx="40" cy="3240" r="16" fill="red"></circle><text x="40" y="3240" text-anchor="middle" fill="white" dy=".3em">x40</text></g>
+<g><circle cx="40" cy="3320" r="16" fill="red"></circle><text x="40" y="3320" text-anchor="middle" fill="white" dy=".3em">x41</text></g>
+<g><circle cx="40" cy="3400" r="16" fill="red"></circle><text x="40" y="3400" text-anchor="middle" fill="white" dy=".3em">x42</text></g>
+<g><circle cx="40" cy="3480" r="16" fill="red"></circle><text x="40" y="3480" text-anchor="middle" fill="white" dy=".3em">x43</text></g>
+<g><circle cx="40" cy="3560" r="16" fill="red"></circle><text x="40" y="3560" text-anchor="middle" fill="white" dy=".3em">x44</text></g>
+<g><circle cx="40" cy="80" r="16" fill="blue"></circle><text x="40" y="80" text-anchor="middle" fill="white" dy=".3em">y00</text></g>
+<g><circle cx="40" cy="160" r="16" fill="blue"></circle><text x="40" y="160" text-anchor="middle" fill="white" dy=".3em">y01</text></g>
+<g><circle cx="40" cy="240" r="16" fill="blue"></circle><text x="40" y="240" text-anchor="middle" fill="white" dy=".3em">y02</text></g>
+<g><circle cx="40" cy="320" r="16" fill="blue"></circle><text x="40" y="320" text-anchor="middle" fill="white" dy=".3em">y03</text></g>
+<g><circle cx="40" cy="400" r="16" fill="blue"></circle><text x="40" y="400" text-anchor="middle" fill="white" dy=".3em">y04</text></g>
+<g><circle cx="40" cy="480" r="16" fill="blue"></circle><text x="40" y="480" text-anchor="middle" fill="white" dy=".3em">y05</text></g>
+<g><circle cx="40" cy="560" r="16" fill="blue"></circle><text x="40" y="560" text-anchor="middle" fill="white" dy=".3em">y06</text></g>
+<g><circle cx="40" cy="640" r="16" fill="blue"></circle><text x="40" y="640" text-anchor="middle" fill="white" dy=".3em">y07</text></g>
+<g><circle cx="40" cy="720" r="16" fill="blue"></circle><text x="40" y="720" text-anchor="middle" fill="white" dy=".3em">y08</text></g>
+<g><circle cx="40" cy="800" r="16" fill="blue"></circle><text x="40" y="800" text-anchor="middle" fill="white" dy=".3em">y09</text></g>
+<g><circle cx="40" cy="880" r="16" fill="blue"></circle><text x="40" y="880" text-anchor="middle" fill="white" dy=".3em">y10</text></g>
+<g><circle cx="40" cy="960" r="16" fill="blue"></circle><text x="40" y="960" text-anchor="middle" fill="white" dy=".3em">y11</text></g>
+<g><circle cx="40" cy="1040" r="16" fill="blue"></circle><text x="40" y="1040" text-anchor="middle" fill="white" dy=".3em">y12</text></g>
+<g><circle cx="40" cy="1120" r="16" fill="blue"></circle><text x="40" y="1120" text-anchor="middle" fill="white" dy=".3em">y13</text></g>
+<g><circle cx="40" cy="1200" r="16" fill="blue"></circle><text x="40" y="1200" text-anchor="middle" fill="white" dy=".3em">y14</text></g>
+<g><circle cx="40" cy="1280" r="16" fill="blue"></circle><text x="40" y="1280" text-anchor="middle" fill="white" dy=".3em">y15</text></g>
+<g><circle cx="40" cy="1360" r="16" fill="blue"></circle><text x="40" y="1360" text-anchor="middle" fill="white" dy=".3em">y16</text></g>
+<g><circle cx="40" cy="1440" r="16" fill="blue"></circle><text x="40" y="1440" text-anchor="middle" fill="white" dy=".3em">y17</text></g>
+<g><circle cx="40" cy="1520" r="16" fill="blue"></circle><text x="40" y="1520" text-anchor="middle" fill="white" dy=".3em">y18</text></g>
+<g><circle cx="40" cy="1600" r="16" fill="blue"></circle><text x="40" y="1600" text-anchor="middle" fill="white" dy=".3em">y19</text></g>
+<g><circle cx="40" cy="1680" r="16" fill="blue"></circle><text x="40" y="1680" text-anchor="middle" fill="white" dy=".3em">y20</text></g>
+<g><circle cx="40" cy="1760" r="16" fill="blue"></circle><text x="40" y="1760" text-anchor="middle" fill="white" dy=".3em">y21</text></g>
+<g><circle cx="40" cy="1840" r="16" fill="blue"></circle><text x="40" y="1840" text-anchor="middle" fill="white" dy=".3em">y22</text></g>
+<g><circle cx="40" cy="1920" r="16" fill="blue"></circle><text x="40" y="1920" text-anchor="middle" fill="white" dy=".3em">y23</text></g>
+<g><circle cx="40" cy="2000" r="16" fill="blue"></circle><text x="40" y="2000" text-anchor="middle" fill="white" dy=".3em">y24</text></g>
+<g><circle cx="40" cy="2080" r="16" fill="blue"></circle><text x="40" y="2080" text-anchor="middle" fill="white" dy=".3em">y25</text></g>
+<g><circle cx="40" cy="2160" r="16" fill="blue"></circle><text x="40" y="2160" text-anchor="middle" fill="white" dy=".3em">y26</text></g>
+<g><circle cx="40" cy="2240" r="16" fill="blue"></circle><text x="40" y="2240" text-anchor="middle" fill="white" dy=".3em">y27</text></g>
+<g><circle cx="40" cy="2320" r="16" fill="blue"></circle><text x="40" y="2320" text-anchor="middle" fill="white" dy=".3em">y28</text></g>
+<g><circle cx="40" cy="2400" r="16" fill="blue"></circle><text x="40" y="2400" text-anchor="middle" fill="white" dy=".3em">y29</text></g>
+<g><circle cx="40" cy="2480" r="16" fill="blue"></circle><text x="40" y="2480" text-anchor="middle" fill="white" dy=".3em">y30</text></g>
+<g><circle cx="40" cy="2560" r="16" fill="blue"></circle><text x="40" y="2560" text-anchor="middle" fill="white" dy=".3em">y31</text></g>
+<g><circle cx="40" cy="2640" r="16" fill="blue"></circle><text x="40" y="2640" text-anchor="middle" fill="white" dy=".3em">y32</text></g>
+<g><circle cx="40" cy="2720" r="16" fill="blue"></circle><text x="40" y="2720" text-anchor="middle" fill="white" dy=".3em">y33</text></g>
+<g><circle cx="40" cy="2800" r="16" fill="blue"></circle><text x="40" y="2800" text-anchor="middle" fill="white" dy=".3em">y34</text></g>
+<g><circle cx="40" cy="2880" r="16" fill="blue"></circle><text x="40" y="2880" text-anchor="middle" fill="white" dy=".3em">y35</text></g>
+<g><circle cx="40" cy="2960" r="16" fill="blue"></circle><text x="40" y="2960" text-anchor="middle" fill="white" dy=".3em">y36</text></g>
+<g><circle cx="40" cy="3040" r="16" fill="blue"></circle><text x="40" y="3040" text-anchor="middle" fill="white" dy=".3em">y37</text></g>
+<g><circle cx="40" cy="3120" r="16" fill="blue"></circle><text x="40" y="3120" text-anchor="middle" fill="white" dy=".3em">y38</text></g>
+<g><circle cx="40" cy="3200" r="16" fill="blue"></circle><text x="40" y="3200" text-anchor="middle" fill="white" dy=".3em">y39</text></g>
+<g><circle cx="40" cy="3280" r="16" fill="blue"></circle><text x="40" y="3280" text-anchor="middle" fill="white" dy=".3em">y40</text></g>
+<g><circle cx="40" cy="3360" r="16" fill="blue"></circle><text x="40" y="3360" text-anchor="middle" fill="white" dy=".3em">y41</text></g>
+<g><circle cx="40" cy="3440" r="16" fill="blue"></circle><text x="40" y="3440" text-anchor="middle" fill="white" dy=".3em">y42</text></g>
+<g><circle cx="40" cy="3520" r="16" fill="blue"></circle><text x="40" y="3520" text-anchor="middle" fill="white" dy=".3em">y43</text></g>
+<g><circle cx="40" cy="3600" r="16" fill="blue"></circle><text x="40" y="3600" text-anchor="middle" fill="white" dy=".3em">y44</text></g>
+<g><circle cx="500" cy="40" r="16" fill="purple"></circle><text x="500" y="40" text-anchor="middle" fill="white" dy=".3em">z00</text></g>
+<g><circle cx="500" cy="120" r="16" fill="purple"></circle><text x="500" y="120" text-anchor="middle" fill="white" dy=".3em">z01</text></g>
+<g><circle cx="500" cy="200" r="16" fill="purple"></circle><text x="500" y="200" text-anchor="middle" fill="white" dy=".3em">z02</text></g>
+<g><circle cx="500" cy="280" r="16" fill="purple"></circle><text x="500" y="280" text-anchor="middle" fill="white" dy=".3em">z03</text></g>
+<g><circle cx="500" cy="360" r="16" fill="purple"></circle><text x="500" y="360" text-anchor="middle" fill="white" dy=".3em">z04</text></g>
+<g><circle cx="500" cy="440" r="16" fill="purple"></circle><text x="500" y="440" text-anchor="middle" fill="white" dy=".3em">z05</text></g>
+<g><circle cx="500" cy="520" r="16" fill="purple"></circle><text x="500" y="520" text-anchor="middle" fill="white" dy=".3em">z06</text></g>
+<g><circle cx="500" cy="600" r="16" fill="purple"></circle><text x="500" y="600" text-anchor="middle" fill="white" dy=".3em">z07</text></g>
+<g><circle cx="500" cy="680" r="16" fill="purple"></circle><text x="500" y="680" text-anchor="middle" fill="white" dy=".3em">z08</text></g>
+<g><circle cx="500" cy="760" r="16" fill="purple"></circle><text x="500" y="760" text-anchor="middle" fill="white" dy=".3em">z09</text></g>
+<g><circle cx="500" cy="840" r="16" fill="purple"></circle><text x="500" y="840" text-anchor="middle" fill="white" dy=".3em">z10</text></g>
+<g><circle cx="500" cy="920" r="16" fill="purple"></circle><text x="500" y="920" text-anchor="middle" fill="white" dy=".3em">z11</text></g>
+<g><circle cx="500" cy="1000" r="16" fill="purple"></circle><text x="500" y="1000" text-anchor="middle" fill="white" dy=".3em">z12</text></g>
+<g><circle cx="500" cy="1080" r="16" fill="purple"></circle><text x="500" y="1080" text-anchor="middle" fill="white" dy=".3em">z13</text></g>
+<g><circle cx="500" cy="1160" r="16" fill="purple"></circle><text x="500" y="1160" text-anchor="middle" fill="white" dy=".3em">z14</text></g>
+<g><circle cx="500" cy="1240" r="16" fill="purple"></circle><text x="500" y="1240" text-anchor="middle" fill="white" dy=".3em">z15</text></g>
+<g><circle cx="500" cy="1320" r="16" fill="purple"></circle><text x="500" y="1320" text-anchor="middle" fill="white" dy=".3em">z16</text></g>
+<g><circle cx="500" cy="1400" r="16" fill="purple"></circle><text x="500" y="1400" text-anchor="middle" fill="white" dy=".3em">z17</text></g>
+<g><circle cx="500" cy="1480" r="16" fill="purple"></circle><text x="500" y="1480" text-anchor="middle" fill="white" dy=".3em">z18</text></g>
+<g><circle cx="500" cy="1560" r="16" fill="purple"></circle><text x="500" y="1560" text-anchor="middle" fill="white" dy=".3em">z19</text></g>
+<g><circle cx="500" cy="1640" r="16" fill="purple"></circle><text x="500" y="1640" text-anchor="middle" fill="white" dy=".3em">z20</text></g>
+<g><circle cx="500" cy="1720" r="16" fill="purple"></circle><text x="500" y="1720" text-anchor="middle" fill="white" dy=".3em">z21</text></g>
+<g><circle cx="500" cy="1800" r="16" fill="purple"></circle><text x="500" y="1800" text-anchor="middle" fill="white" dy=".3em">z22</text></g>
+<g><circle cx="500" cy="1880" r="16" fill="purple"></circle><text x="500" y="1880" text-anchor="middle" fill="white" dy=".3em">z23</text></g>
+<g><circle cx="500" cy="1960" r="16" fill="purple"></circle><text x="500" y="1960" text-anchor="middle" fill="white" dy=".3em">z24</text></g>
+<g><circle cx="500" cy="2040" r="16" fill="purple"></circle><text x="500" y="2040" text-anchor="middle" fill="white" dy=".3em">z25</text></g>
+<g><circle cx="500" cy="2120" r="16" fill="purple"></circle><text x="500" y="2120" text-anchor="middle" fill="white" dy=".3em">z26</text></g>
+<g><circle cx="500" cy="2200" r="16" fill="purple"></circle><text x="500" y="2200" text-anchor="middle" fill="white" dy=".3em">z27</text></g>
+<g><circle cx="500" cy="2280" r="16" fill="purple"></circle><text x="500" y="2280" text-anchor="middle" fill="white" dy=".3em">z28</text></g>
+<g><circle cx="500" cy="2360" r="16" fill="purple"></circle><text x="500" y="2360" text-anchor="middle" fill="white" dy=".3em">z29</text></g>
+<g><circle cx="500" cy="2440" r="16" fill="purple"></circle><text x="500" y="2440" text-anchor="middle" fill="white" dy=".3em">z30</text></g>
+<g><circle cx="500" cy="2520" r="16" fill="purple"></circle><text x="500" y="2520" text-anchor="middle" fill="white" dy=".3em">z31</text></g>
+<g><circle cx="500" cy="2600" r="16" fill="purple"></circle><text x="500" y="2600" text-anchor="middle" fill="white" dy=".3em">z32</text></g>
+<g><circle cx="500" cy="2680" r="16" fill="purple"></circle><text x="500" y="2680" text-anchor="middle" fill="white" dy=".3em">z33</text></g>
+<g><circle cx="500" cy="2760" r="16" fill="purple"></circle><text x="500" y="2760" text-anchor="middle" fill="white" dy=".3em">z34</text></g>
+<g><circle cx="500" cy="2840" r="16" fill="purple"></circle><text x="500" y="2840" text-anchor="middle" fill="white" dy=".3em">z35</text></g>
+<g><circle cx="500" cy="2920" r="16" fill="purple"></circle><text x="500" y="2920" text-anchor="middle" fill="white" dy=".3em">z36</text></g>
+<g><circle cx="500" cy="3000" r="16" fill="purple"></circle><text x="500" y="3000" text-anchor="middle" fill="white" dy=".3em">z37</text></g>
+<g><circle cx="500" cy="3080" r="16" fill="purple"></circle><text x="500" y="3080" text-anchor="middle" fill="white" dy=".3em">z38</text></g>
+<g><circle cx="500" cy="3160" r="16" fill="purple"></circle><text x="500" y="3160" text-anchor="middle" fill="white" dy=".3em">z39</text></g>
+<g><circle cx="500" cy="3240" r="16" fill="purple"></circle><text x="500" y="3240" text-anchor="middle" fill="white" dy=".3em">z40</text></g>
+<g><circle cx="500" cy="3320" r="16" fill="purple"></circle><text x="500" y="3320" text-anchor="middle" fill="white" dy=".3em">z41</text></g>
+<g><circle cx="500" cy="3400" r="16" fill="purple"></circle><text x="500" y="3400" text-anchor="middle" fill="white" dy=".3em">z42</text></g>
+<g><circle cx="500" cy="3480" r="16" fill="purple"></circle><text x="500" y="3480" text-anchor="middle" fill="white" dy=".3em">z43</text></g>
+<g><circle cx="500" cy="3560" r="16" fill="purple"></circle><text x="500" y="3560" text-anchor="middle" fill="white" dy=".3em">z44</text></g>
+<g><circle cx="500" cy="3640" r="16" fill="purple"></circle><text x="500" y="3640" text-anchor="middle" fill="white" dy=".3em">z45</text></g>
+<g><line x1="56" y1="2640" x2="144" y2="2600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2600" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2600" x2="144" y2="2600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2760" x2="144" y2="2760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2760" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2800" x2="144" y2="2760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="640" x2="144" y2="600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="600" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="600" x2="144" y2="600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1160" x2="144" y2="1160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1160" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1200" x2="144" y2="1160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2480" x2="144" y2="2440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2440" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2440" x2="144" y2="2440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1880" x2="144" y2="1880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1880" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1920" x2="144" y2="1880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2680" x2="144" y2="2680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2680" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2720" x2="144" y2="2680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1520" x2="144" y2="1480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1480" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1480" x2="144" y2="1480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2160" x2="144" y2="2120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2120" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2120" x2="144" y2="2120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="280" x2="144" y2="280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="280" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="320" x2="144" y2="280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3160" x2="144" y2="3160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3160" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3200" x2="144" y2="3160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3600" x2="144" y2="3560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3560" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3560" x2="144" y2="3560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="200" x2="144" y2="200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="200" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="240" x2="144" y2="200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="960" x2="144" y2="920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="920" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="920" x2="144" y2="920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1600" x2="144" y2="1560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1560" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1560" x2="144" y2="1560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3120" x2="144" y2="3080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3080" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3080" x2="144" y2="3080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2560" x2="144" y2="2520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2520" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2520" x2="144" y2="2520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="360" x2="144" y2="360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="360" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="400" x2="144" y2="360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="160" x2="144" y2="120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="120" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="120" x2="144" y2="120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="680" x2="144" y2="680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="680" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="720" x2="144" y2="680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2880" x2="144" y2="2840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2840" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2840" x2="144" y2="2840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3480" x2="144" y2="3480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3480" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3520" x2="144" y2="3480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1000" x2="144" y2="1000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1000" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1040" x2="144" y2="1000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="80" x2="144" y2="40" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="40" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="40" x2="144" y2="40" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="760" x2="144" y2="760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="760" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="800" x2="144" y2="760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1800" x2="144" y2="1800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1800" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1840" x2="144" y2="1800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3360" x2="144" y2="3320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3320" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3320" x2="144" y2="3320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2080" x2="144" y2="2040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2040" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2040" x2="144" y2="2040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3280" x2="144" y2="3240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3240" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3240" x2="144" y2="3240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3400" x2="144" y2="3400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3400" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3440" x2="144" y2="3400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3000" x2="144" y2="3000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3000" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="3040" x2="144" y2="3000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1080" x2="144" y2="1080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1080" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1120" x2="144" y2="1080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="440" x2="144" y2="440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="440" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="480" x2="144" y2="440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2200" x2="144" y2="2200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2200" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2240" x2="144" y2="2200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2280" x2="144" y2="2280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2280" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2320" x2="144" y2="2280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1640" x2="144" y2="1640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1640" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1680" x2="144" y2="1640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2000" x2="144" y2="1960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1960" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1960" x2="144" y2="1960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2920" x2="144" y2="2920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2920" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2960" x2="144" y2="2920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2360" x2="144" y2="2360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2360" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="2400" x2="144" y2="2360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="520" x2="144" y2="520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="520" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="560" x2="144" y2="520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1280" x2="144" y2="1240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1240" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1240" x2="144" y2="1240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1760" x2="144" y2="1720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1720" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1720" x2="144" y2="1720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="880" x2="144" y2="840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="840" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="840" x2="144" y2="840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1320" x2="144" y2="1320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1320" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1360" x2="144" y2="1320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1400" x2="144" y2="1400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1400" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="56" y1="1440" x2="144" y2="1400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2600" x2="144" y2="2640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2640" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2640" x2="144" y2="2640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3440" x2="144" y2="3440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3440" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3400" x2="144" y2="3440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2560" x2="144" y2="2560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2560" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2520" x2="144" y2="2560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3200" x2="144" y2="3200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3200" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3160" x2="144" y2="3200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1040" x2="144" y2="1040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1040" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1000" x2="144" y2="1040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="840" x2="144" y2="880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="880" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="880" x2="144" y2="880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2440" x2="144" y2="2480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2480" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2480" x2="144" y2="2480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="680" x2="144" y2="720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="720" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="720" x2="144" y2="720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3280" x2="144" y2="3280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3280" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3240" x2="144" y2="3280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3320" x2="144" y2="3360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3360" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3360" x2="144" y2="3360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2040" x2="144" y2="2080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2080" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2080" x2="144" y2="2080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2960" x2="144" y2="2960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2960" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2920" x2="144" y2="2960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="320" x2="144" y2="320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="320" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="280" x2="144" y2="320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2160" x2="144" y2="2160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2160" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2120" x2="144" y2="2160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1840" x2="144" y2="1840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1840" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1800" x2="144" y2="1840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3600" x2="144" y2="3600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3600" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3560" x2="144" y2="3600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2000" x2="144" y2="2000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2000" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1960" x2="144" y2="2000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1200" x2="144" y2="1200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1200" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1160" x2="144" y2="1200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="440" x2="144" y2="480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="480" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="480" x2="144" y2="480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1440" x2="144" y2="1440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1440" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1400" x2="144" y2="1440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="360" x2="144" y2="400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="400" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="400" x2="144" y2="400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="120" x2="144" y2="160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="160" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="160" x2="144" y2="160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1640" x2="144" y2="1680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1680" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1680" x2="144" y2="1680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1880" x2="144" y2="1920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1920" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1920" x2="144" y2="1920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="600" x2="144" y2="640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="640" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="640" x2="144" y2="640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="520" x2="144" y2="560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="560" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="560" x2="144" y2="560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1560" x2="144" y2="1600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1600" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1600" x2="144" y2="1600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="240" x2="144" y2="240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="240" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="200" x2="144" y2="240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2880" x2="144" y2="2880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2880" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2840" x2="144" y2="2880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="80" x2="484" y2="40" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="40" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="40" x2="484" y2="40" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1280" x2="144" y2="1280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1280" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1240" x2="144" y2="1280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1120" x2="144" y2="1120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1120" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1080" x2="144" y2="1120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="920" x2="144" y2="960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="960" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="960" x2="144" y2="960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3520" x2="144" y2="3520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3520" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3480" x2="144" y2="3520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2200" x2="144" y2="2240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2240" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2240" x2="144" y2="2240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2280" x2="144" y2="2320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2320" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2320" x2="144" y2="2320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="760" x2="144" y2="800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="800" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="800" x2="144" y2="800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2760" x2="144" y2="2800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2800" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2800" x2="144" y2="2800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3040" x2="144" y2="3040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3040" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3000" x2="144" y2="3040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="3080" x2="144" y2="3120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="3120" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="3120" x2="144" y2="3120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2680" x2="144" y2="2720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2720" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2720" x2="144" y2="2720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1760" x2="144" y2="1760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1760" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1720" x2="144" y2="1760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1520" x2="144" y2="1520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1520" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1480" x2="144" y2="1520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="1320" x2="144" y2="1360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="1360" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="1360" x2="144" y2="1360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="56" y1="2360" x2="144" y2="2400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="135" y="2400" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="56" y1="2400" x2="144" y2="2400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="160" x2="264" y2="40" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="40" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="40" x2="264" y2="40" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="120" x2="264" y2="120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="120" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="40" x2="264" y2="120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="120" x2="264" y2="240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="240" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="240" x2="264" y2="240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="240" x2="264" y2="200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="200" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="200" x2="264" y2="200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="200" x2="264" y2="320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="320" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="320" x2="264" y2="320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="320" x2="264" y2="280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="280" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="280" x2="264" y2="280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="400" x2="264" y2="400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="400" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="280" x2="264" y2="400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="400" x2="264" y2="360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="360" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="360" x2="264" y2="360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="360" x2="264" y2="480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="480" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="480" x2="264" y2="480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="480" x2="264" y2="440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="440" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="440" x2="264" y2="440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="440" x2="264" y2="560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="560" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="560" x2="264" y2="560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="560" x2="264" y2="520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="520" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="520" x2="264" y2="520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="640" x2="264" y2="640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="640" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="520" x2="264" y2="640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="640" x2="264" y2="600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="600" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="600" x2="264" y2="600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="600" x2="264" y2="720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="720" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="720" x2="264" y2="720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="680" x2="264" y2="680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="680" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="720" x2="264" y2="680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="680" x2="264" y2="800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="800" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="800" x2="264" y2="800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="800" x2="264" y2="760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="760" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="760" x2="264" y2="760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="880" x2="264" y2="880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="880" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="760" x2="264" y2="880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="840" x2="264" y2="840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="840" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="880" x2="264" y2="840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="960" x2="264" y2="960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="960" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="840" x2="264" y2="960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="920" x2="264" y2="920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="920" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="960" x2="264" y2="920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1040" x2="264" y2="1040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1040" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="920" x2="264" y2="1040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1040" x2="264" y2="1000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1000" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1000" x2="264" y2="1000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1000" x2="264" y2="1120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1120" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1120" x2="264" y2="1120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1080" x2="264" y2="1080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1080" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="1120" x2="264" y2="1080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1200" x2="264" y2="1200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1200" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="1080" x2="264" y2="1200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1200" x2="264" y2="1160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1160" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1160" x2="264" y2="1160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1280" x2="264" y2="1280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1280" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="1160" x2="264" y2="1280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1280" x2="264" y2="1240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1240" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1240" x2="264" y2="1240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1240" x2="264" y2="1360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1360" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1360" x2="264" y2="1360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1320" x2="264" y2="1320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1320" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="1360" x2="264" y2="1320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1320" x2="264" y2="1440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1440" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1440" x2="264" y2="1440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1440" x2="264" y2="1400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1400" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1400" x2="264" y2="1400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1400" x2="264" y2="1520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1520" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1520" x2="264" y2="1520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1520" x2="264" y2="1480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1480" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1480" x2="264" y2="1480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1480" x2="264" y2="1600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1600" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1600" x2="264" y2="1600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1560" x2="264" y2="1560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1560" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="1600" x2="264" y2="1560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1680" x2="264" y2="1680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1680" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="1560" x2="264" y2="1680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1640" x2="264" y2="1640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1640" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="1680" x2="264" y2="1640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1760" x2="264" y2="1760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1760" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="1640" x2="264" y2="1760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1760" x2="264" y2="1720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1720" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1720" x2="264" y2="1720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1720" x2="264" y2="1840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1840" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1840" x2="264" y2="1840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1800" x2="264" y2="1800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1800" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="1840" x2="264" y2="1800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1800" x2="264" y2="1920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1920" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="1920" x2="264" y2="1920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1880" x2="264" y2="1880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1880" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="1920" x2="264" y2="1880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2000" x2="264" y2="2000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2000" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="1880" x2="264" y2="2000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2000" x2="264" y2="1960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="1960" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="1960" x2="264" y2="1960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1960" x2="264" y2="2080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2080" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="2080" x2="264" y2="2080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2080" x2="264" y2="2040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2040" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2040" x2="264" y2="2040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2040" x2="264" y2="2160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2160" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="2160" x2="264" y2="2160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2120" x2="264" y2="2120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2120" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="2160" x2="264" y2="2120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2240" x2="264" y2="2240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2240" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="2120" x2="264" y2="2240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2200" x2="264" y2="2200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2200" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="2240" x2="264" y2="2200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2200" x2="264" y2="2320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2320" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="2320" x2="264" y2="2320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2320" x2="264" y2="2280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2280" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2280" x2="264" y2="2280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2280" x2="264" y2="2400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2400" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="2400" x2="264" y2="2400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2400" x2="264" y2="2360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2360" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2360" x2="264" y2="2360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2480" x2="264" y2="2480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2480" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="2360" x2="264" y2="2480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2480" x2="264" y2="2440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2440" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2440" x2="264" y2="2440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2560" x2="264" y2="2560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2560" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="2440" x2="264" y2="2560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2520" x2="264" y2="2520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2520" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="2560" x2="264" y2="2520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2640" x2="264" y2="2640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2640" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="2520" x2="264" y2="2640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2600" x2="264" y2="2600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2600" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="2640" x2="264" y2="2600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2720" x2="264" y2="2720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2720" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="2600" x2="264" y2="2720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2680" x2="264" y2="2680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2680" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="2720" x2="264" y2="2680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2680" x2="264" y2="2800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2800" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="2800" x2="264" y2="2800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2800" x2="264" y2="2760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2760" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2760" x2="264" y2="2760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2880" x2="264" y2="2880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2880" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="2760" x2="264" y2="2880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2880" x2="264" y2="2840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2840" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2840" x2="264" y2="2840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2840" x2="264" y2="2960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2960" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="2960" x2="264" y2="2960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2960" x2="264" y2="2920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="2920" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="2920" x2="264" y2="2920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2920" x2="264" y2="3040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3040" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="3040" x2="264" y2="3040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3000" x2="264" y2="3000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3000" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="3040" x2="264" y2="3000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3120" x2="264" y2="3120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3120" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="3000" x2="264" y2="3120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3120" x2="264" y2="3080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3080" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="3080" x2="264" y2="3080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3080" x2="264" y2="3200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3200" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="3200" x2="264" y2="3200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3200" x2="264" y2="3160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3160" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="3160" x2="264" y2="3160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3160" x2="264" y2="3280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3280" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="3280" x2="264" y2="3280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3280" x2="264" y2="3240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3240" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="3240" x2="264" y2="3240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3360" x2="264" y2="3360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3360" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="3240" x2="264" y2="3360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3360" x2="264" y2="3320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3320" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="3320" x2="264" y2="3320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3440" x2="264" y2="3440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3440" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="3320" x2="264" y2="3440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3400" x2="264" y2="3400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3400" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="3440" x2="264" y2="3400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3400" x2="264" y2="3520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3520" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="176" y1="3520" x2="264" y2="3520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3520" x2="264" y2="3480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3480" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="176" y1="3480" x2="264" y2="3480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3600" x2="264" y2="3600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="255" y="3600" text-anchor="middle" fill="black" font-size="0.5em">AND</text></g>
+<g><line x1="296" y1="3480" x2="264" y2="3600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3560" x2="484" y2="3640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3640" text-anchor="middle" fill="black" font-size="0.5em">OR</text></g>
+<g><line x1="296" y1="3600" x2="484" y2="3640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2960" x2="484" y2="2920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2920" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="2840" x2="484" y2="2920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="400" x2="484" y2="360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="360" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="280" x2="484" y2="360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3160" x2="484" y2="3240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3240" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="3280" x2="484" y2="3240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3040" x2="484" y2="3000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3000" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="2920" x2="484" y2="3000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="440" x2="484" y2="520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="520" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="560" x2="484" y2="520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="200" x2="484" y2="280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="280" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="320" x2="484" y2="280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1960" x2="484" y2="2040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2040" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2080" x2="484" y2="2040" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="760" x2="484" y2="840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="840" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="880" x2="484" y2="840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1680" x2="484" y2="1640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1640" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1560" x2="484" y2="1640" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2880" x2="484" y2="2840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2840" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="2760" x2="484" y2="2840" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="480" x2="484" y2="440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="440" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="360" x2="484" y2="440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2120" x2="484" y2="2200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2200" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2240" x2="484" y2="2200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1120" x2="484" y2="1080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1080" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1000" x2="484" y2="1080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="600" x2="484" y2="680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="680" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="720" x2="484" y2="680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="800" x2="484" y2="760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="760" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="680" x2="484" y2="760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2200" x2="484" y2="2280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2280" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2320" x2="484" y2="2280" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="520" x2="484" y2="600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="600" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="640" x2="484" y2="600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2280" x2="484" y2="2360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2360" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2400" x2="484" y2="2360" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="240" x2="484" y2="200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="200" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="120" x2="484" y2="200" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2360" x2="484" y2="2440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2440" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2480" x2="484" y2="2440" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1920" x2="484" y2="1880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1880" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1800" x2="484" y2="1880" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1080" x2="484" y2="1160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1160" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="1200" x2="484" y2="1160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1480" x2="484" y2="1560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1560" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="1600" x2="484" y2="1560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2800" x2="484" y2="2760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2760" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="2680" x2="484" y2="2760" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="920" x2="484" y2="1000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1000" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="1040" x2="484" y2="1000" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2520" x2="484" y2="2600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2600" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2640" x2="484" y2="2600" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2440" x2="484" y2="2520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2520" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2560" x2="484" y2="2520" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2000" x2="484" y2="1960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1960" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1880" x2="484" y2="1960" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1160" x2="484" y2="1240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1240" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="1280" x2="484" y2="1240" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3000" x2="484" y2="3080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3080" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="3120" x2="484" y2="3080" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3080" x2="484" y2="3160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3160" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="3200" x2="484" y2="3160" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="840" x2="484" y2="920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="920" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="960" x2="484" y2="920" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="2040" x2="484" y2="2120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2120" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="2160" x2="484" y2="2120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1760" x2="484" y2="1720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1720" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1640" x2="484" y2="1720" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="2720" x2="484" y2="2680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="2680" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="2600" x2="484" y2="2680" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1520" x2="484" y2="1480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1480" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1400" x2="484" y2="1480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1360" x2="484" y2="1320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1320" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1240" x2="484" y2="1320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3240" x2="484" y2="3320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3320" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="3360" x2="484" y2="3320" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="1320" x2="484" y2="1400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1400" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="1440" x2="484" y2="1400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3600" x2="484" y2="3560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3560" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="3480" x2="484" y2="3560" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="1840" x2="484" y2="1800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="1800" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="1720" x2="484" y2="1800" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="160" x2="484" y2="120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="120" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="40" x2="484" y2="120" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="176" y1="3520" x2="484" y2="3480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3480" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="296" y1="3400" x2="484" y2="3480" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+<g><line x1="296" y1="3320" x2="484" y2="3400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /><text x="475" y="3400" text-anchor="middle" fill="black" font-size="0.5em">XOR</text></g>
+<g><line x1="176" y1="3440" x2="484" y2="3400" stroke="black" marker-start="url(#dot)" marker-end="url(#arrow)" /></g>
+</svg>
